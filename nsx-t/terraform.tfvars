@@ -1,0 +1,5 @@
+nsx_manager = "nsxmanager.demo.local"
+nsx_username = "admin"
+nsx_password = "VMware1!VMware1!"
+nsx_tag_scope = "Environment"
+nsx_tag = "Demo"
