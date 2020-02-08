@@ -33,11 +33,11 @@ data "vsphere_virtual_machine" "source_template" {
   datacenter_id = data.vsphere_datacenter.target_dc.id
 }
 
-##### Resourcesxs
+##### Resources
 # Clones multiple Linux VMs from a template
 
 resource "vsphere_virtual_machine" "vsphere_vms" {
-  count            = 3
+  count            = 1s
   name             = "vm${count.index + 1}"
   resource_pool_id = data.vsphere_compute_cluster.target_cluster.resource_pool_id
   datastore_id     = data.vsphere_datastore.target_datastore.id
