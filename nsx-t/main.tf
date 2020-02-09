@@ -21,13 +21,6 @@ data "nsxt_transport_zone" "overlay_tz" {
 }
 
 #
-# The existing Edge Cluster for Tier-1 Gateways
-#
-data "nsxt_edge_cluster" "edge_cluster_tier1" {
-  display_name = "Tier-1 Cluster"
-}
-
-#
 # The existing Tier-0 Gateway
 #
 data "nsxt_policy_tier0_gateway" "tier0_gateway" {
@@ -58,7 +51,7 @@ resource "nsxt_policy_segment" "segment1" {
   description       = "Managed by Terraform"
   display_name      = "web"
   transport_zone_path = var.transport_zone_path
-  connectivity_path = "${data.nsxt_policy_tier1.tier1-01.path}"
+  connectivity_path = "${data.nsxt_policy_tier1_gateway.tier1-01.path}"
 
   tag {
     scope = var.nsx_tag_scope
@@ -74,7 +67,7 @@ resource "nsxt_policy_segment" "segment2" {
   description       = "Managed by Terraform"
   display_name      = "app"
   transport_zone_path = var.transport_zone_path
-  connectivity_path = "${data.nsxt_policy_tier1.tier1-01.path}"
+  connectivity_path = "${data.nsxt_policy_tier1_gateway.tier1-01.path}"
 
   tag {
     scope = var.nsx_tag_scope
@@ -90,7 +83,7 @@ resource "nsxt_policy_segment" "segment2" {
   description       = "Managed by Terraform"
   display_name      = "db"
   transport_zone_path = var.transport_zone_path
-  connectivity_path = "${data.nsxt_policy_tier1.tier1-01.path}"
+  connectivity_path = "${data.nsxt_policy_tier1_gateway.tier1-01.path}"
 
   tag {
     scope = var.nsx_tag_scope
