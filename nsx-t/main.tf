@@ -14,24 +14,31 @@ provider "nsxt" {
 }
 
 #
-# The NSX-T Overlay Transport Zone
+# The existing NSX-T Overlay Transport Zone
 #
 data "nsxt_transport_zone" "overlay_tz" {
   display_name = "TZ-Overlay"
 }
 
 #
-# The Edge Cluster for Tier-1 Gateways
+# The existing Edge Cluster for Tier-1 Gateways
 #
 data "nsxt_edge_cluster" "edge_cluster_tier1" {
   display_name = "Tier-1 Cluster"
 }
 
 #
-# The Tier-0 Gateway
+# The existing Tier-0 Gateway
 #
 data "nsxt_policy_tier0_gateway" "tier0_gateway" {
-  display_name = "T0"
+  display_name  = "T0"
+}
+
+#
+# The existing Tier-1 Gateway
+#
+resource "nsxt_policy_tier1_gateway" "tier1_gateway" {
+  display_name  = "t1"
 }
 
 #
