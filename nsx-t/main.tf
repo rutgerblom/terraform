@@ -51,7 +51,7 @@ resource "nsxt_policy_segment" "segment1" {
   description       = "Managed by Terraform"
   display_name      = "web"
   transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
-  connectivity_path = "${nsxt_policy_tier1_gateway.tier1-01.path}"
+  connectivity_path = nsxt_policy_tier1_gateway.tier1-01.path
   subnet {
     cidr    = "172.16.1.1/24"
     }
@@ -74,7 +74,7 @@ resource "nsxt_policy_segment" "segment2" {
   description       = "Managed by Terraform"
   display_name      = "web"
   transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
-  connectivity_path = "${nsxt_policy_tier1_gateway.tier1-01.path}"
+  connectivity_path = nsxt_policy_tier1_gateway.tier1-01.path
   subnet {
     cidr    = "172.16.2.1/24"
     }
@@ -97,7 +97,7 @@ resource "nsxt_policy_segment" "segment3" {
   description       = "Managed by Terraform"
   display_name      = "db"
   transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
-  connectivity_path = "${nsxt_policy_tier1_gateway.tier1-01.path}"
+  connectivity_path = nsxt_policy_tier1_gateway.tier1-01.path
   subnet {
     cidr    = "172.16.3.1/24"
     }
