@@ -59,6 +59,7 @@ resource "nsxt_policy_segment" "segment1" {
     scope = "tier"
     tag   = "web"
   }
+}
 resource "nsxt_policy_segment" "segment2" {
   description       = "Created by Terraform"
   display_name      = "app"
@@ -73,6 +74,7 @@ resource "nsxt_policy_segment" "segment2" {
     scope = "tier"
     tag   = "app"
   }
+}
   resource "nsxt_policy_segment" "segment3" {
   description       = "Created by Terraform"
   display_name      = "db"
