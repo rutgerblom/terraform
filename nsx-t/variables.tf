@@ -8,11 +8,8 @@ variable "nsx_password" {
   description = "NSX Manager password"
 }
 variable "nsx_tag_scope" {
-  description = "NSX scope"
+  description = "scope"
 }
 variable "nsx_tag" {
   description = "NSX tag"
-}
-variable "transport_zone_path" {
-  description = "NSX Transport zone path"
 }
