@@ -11,7 +11,7 @@ provider "nsxt" {
   retry_min_delay       = 500
   retry_max_delay       = 5000
   retry_on_status_codes = [429]
-  version               = 1.1
+  version               = 1.1.3
 }
 
 #
