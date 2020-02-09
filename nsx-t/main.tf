@@ -45,7 +45,7 @@ resource "nsxt_policy_tier1_gateway" "tier1-01" {
 }
 
 #
-# Creating the NSX-T Segments
+# Creating segments web
 #
 resource "nsxt_policy_segment" "segment1" {
   description       = "Managed by Terraform"
@@ -64,5 +64,51 @@ resource "nsxt_policy_segment" "segment1" {
   tag {
     scope = "tier"
     tag   = "web"
+  }
+}
+
+#
+# Creating segments app
+#
+resource "nsxt_policy_segment" "segment2" {
+  description       = "Managed by Terraform"
+  display_name      = "web"
+  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
+  connectivity_path = "${nsxt_policy_tier1_gateway.tier1-01.path}"
+  subnet {
+    cidr    = "172.16.2.1/24"
+    }
+
+  tag {
+    scope = var.nsx_tag_scope
+    tag   = var.nsx_tag
+  }
+
+  tag {
+    scope = "tier"
+    tag   = "app"
+  }
+}
+
+#
+# Creating segments db
+#
+resource "nsxt_policy_segment" "segment3" {
+  description       = "Managed by Terraform"
+  display_name      = "db"
+  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
+  connectivity_path = "${nsxt_policy_tier1_gateway.tier1-01.path}"
+  subnet {
+    cidr    = "172.16.3.1/24"
+    }
+
+  tag {
+    scope = var.nsx_tag_scope
+    tag   = var.nsx_tag
+  }
+
+  tag {
+    scope = "tier"
+    tag   = "db"
   }
 }
