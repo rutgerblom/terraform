@@ -58,13 +58,13 @@ resource "nsxt_policy_segment" "segment1" {
   description       = "Managed by Terraform"
   display_name      = "web"
   transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
-  connectivity_path = data.nsxt_policy_tier1_gateway.tier1-01.path
-  subnets           = [
-    {
-      "gateway_address": "172.16.1.1/24",
-      "network": "172.16.1.0/24"
-    }
-  ]
+  #connectivity_path = data.nsxt_policy_tier1_gateway.tier1-01.path
+  #subnets           = [
+  #  {
+  #    "gateway_address": "172.16.1.1/24",
+  #    "network": "172.16.1.0/24"
+  #  }
+  #]
 
   tag {
     scope = var.nsx_tag_scope
@@ -74,49 +74,5 @@ resource "nsxt_policy_segment" "segment1" {
   tag {
     scope = "tier"
     tag   = "web"
-  }
-}
-resource "nsxt_policy_segment" "segment2" {
-  description       = "Managed by Terraform"
-  display_name      = "app"
-  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
-  connectivity_path = data.nsxt_policy_tier1_gateway.tier1-01.path
-  subnets           = [
-    {
-      "gateway_address": "172.16.2.1/24",
-      "network": "172.16.2.0/24"
-    }
-  ]
-
-  tag {
-    scope = var.nsx_tag_scope
-    tag   = var.nsx_tag
-  }
-
-  tag {
-    scope = "tier"
-    tag   = "app"
-  }
-}
-  resource "nsxt_policy_segment" "segment3" {
-  description       = "Managed by Terraform"
-  display_name      = "db"
-  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
-  connectivity_path = data.nsxt_policy_tier1_gateway.tier1-01.path
-  subnets           = [
-    {
-      "gateway_address": "172.16.3.1/24",
-      "network": "172.16.3.0/24"
-    }
-  ]
-
-  tag {
-    scope = var.nsx_tag_scope
-    tag   = var.nsx_tag
-  }
-
-  tag {
-    scope = "tier"
-    tag   = "db"
   }
 }
