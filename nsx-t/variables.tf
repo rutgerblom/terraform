@@ -13,5 +13,6 @@ variable "nsx_tag_scope" {
 variable "nsx_tag" {
   description = "NSX tag"
 }
-
-
+variable "transport_zone_path" {
+  description = "NSX Transport zone path"
+}
