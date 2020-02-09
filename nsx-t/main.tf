@@ -58,7 +58,7 @@ resource "nsxt_policy_segment" "segment1" {
   description       = "Managed by Terraform"
   display_name      = "web"
   transport_zone_path = var.transport_zone_path
-  connectivity_path = "${data.nsxt_policy_tier1_gateway.tier1-01.path}"
+  connectivity_path = data.nsxt_policy_tier1_gateway.tier1-01.path
 
   tag {
     scope = var.nsx_tag_scope
@@ -74,7 +74,7 @@ resource "nsxt_policy_segment" "segment2" {
   description       = "Managed by Terraform"
   display_name      = "app"
   transport_zone_path = var.transport_zone_path
-  connectivity_path = "${data.nsxt_policy_tier1_gateway.tier1-01.path}"
+  connectivity_path = data.nsxt_policy_tier1_gateway.tier1-01.path
 
   tag {
     scope = var.nsx_tag_scope
@@ -90,7 +90,7 @@ resource "nsxt_policy_segment" "segment2" {
   description       = "Managed by Terraform"
   display_name      = "db"
   transport_zone_path = var.transport_zone_path
-  connectivity_path = "${data.nsxt_policy_tier1_gateway.tier1-01.path}"
+  connectivity_path = data.nsxt_policy_tier1_gateway.tier1-01.path
 
   tag {
     scope = var.nsx_tag_scope
