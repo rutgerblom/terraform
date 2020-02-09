@@ -58,13 +58,11 @@ resource "nsxt_policy_segment" "segment1" {
   description       = "Managed by Terraform"
   display_name      = "web"
   transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
-  #connectivity_path = data.nsxt_policy_tier1_gateway.tier1-01.path
-  #subnets           = [
-  #  {
-  #    "gateway_address": "172.16.1.1/24",
-  #    "network": "172.16.1.0/24"
-  #  }
-  #]
+  connectivity_path = data.nsxt_policy_tier1_gateway.tier1-01.path
+  subnet {
+    cidr    = "172.16.1.1/24"
+    network = "172.16.1.0/24"
+    }
 
   tag {
     scope = var.nsx_tag_scope
