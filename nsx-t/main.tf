@@ -38,16 +38,24 @@ data "nsxt_policy_tier0_gateway" "tier0_gateway" {
 # Create new Tier-1 Gateway
 #
 resource "nsxt_policy_tier1_gateway" "tier1-01" {
-  description     = "Created by Terraform"
+  description     = "Managed by Terraform"
   display_name    = "T1-CustomerX"
+  tier0_path      = "/infra/tier-0s/T0"
+  enable_standby_relocation = "false"
   enable_firewall = false
+  failover_mode   = "NON_PREEMPTIVE"
+  route_advertisement_types = [
+        "TIER1_LB_VIP",
+        "TIER1_NAT",
+        "TIER1_CONNECTED",
+        "TIER1_STATIC_ROUTES"]
 }
 
 #
 # Creating the NSX-T Segments
 #
 resource "nsxt_policy_segment" "segment1" {
-  description       = "Created by Terraform"
+  description       = "Managed by Terraform"
   display_name      = "web"
   transport_zone_path = var.transport_zone_path
 
@@ -62,7 +70,7 @@ resource "nsxt_policy_segment" "segment1" {
   }
 }
 resource "nsxt_policy_segment" "segment2" {
-  description       = "Created by Terraform"
+  description       = "Managed by Terraform"
   display_name      = "app"
   transport_zone_path = var.transport_zone_path
 
@@ -77,7 +85,7 @@ resource "nsxt_policy_segment" "segment2" {
   }
 }
   resource "nsxt_policy_segment" "segment3" {
-  description       = "Created by Terraform"
+  description       = "Managed by Terraform"
   display_name      = "db"
   transport_zone_path = var.transport_zone_path
 
