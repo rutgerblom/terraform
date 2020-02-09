@@ -54,7 +54,6 @@ resource "nsxt_policy_segment" "segment1" {
   connectivity_path = "${nsxt_policy_tier1_gateway.tier1-01.path}"
   subnet {
     cidr    = "172.16.1.1/24"
-    dhcp    = ["172.16.1.10-172.16.1.20"]
     }
 
   tag {
