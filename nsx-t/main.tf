@@ -45,20 +45,13 @@ resource "nsxt_policy_tier1_gateway" "tier1-01" {
 }
 
 #
-# New Tier-1 Gateway as data resource
-#
-data "nsxt_policy_tier1_gateway" "tier1-01" {
-  display_name    = "T1-CustomerX"
-}
-
-#
 # Creating the NSX-T Segments
 #
 resource "nsxt_policy_segment" "segment1" {
   description       = "Managed by Terraform"
   display_name      = "web"
-  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
-  connectivity_path = data.nsxt_policy_tier1_gateway.tier1-01.path
+  transport_zone_path = nsxt_policy_transport_zone.overlay_tz.path
+  connectivity_path = nsxt_policy_tier1_gateway.tier1-01.path
   subnet {
     cidr    = "172.16.1.1/24"
     }
