@@ -44,8 +44,7 @@ resource "nsxt_policy_segment" "segment1" {
   admin_state       = "UP"
   description       = "Segment created by Terraform"
   display_name      = "segment1"
-  transport_zone_id = "12d25875-7960-4ceb-91f1-f39a24a57014"
-  replication_mode  = "MTEP"
+  transport_zone_path = "/infra/sites/default/enforcement-points/default/transport-zones/12d25875-7960-4ceb-91f1-f39a24a57014"
 
   tag {
     scope = "${var.nsx_tag_scope}"
