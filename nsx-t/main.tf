@@ -50,8 +50,8 @@ resource "nsxt_policy_tier1_gateway" "tier1-01" {
 resource "nsxt_policy_segment" "segment1" {
   description       = "Managed by Terraform"
   display_name      = "web"
-  transport_zone_path = nsxt_policy_transport_zone.overlay_tz.path
-  connectivity_path = nsxt_policy_tier1_gateway.tier1-01.path
+  transport_zone_path = "${nsxt_policy_transport_zone.overlay_tz.path}"
+  connectivity_path = "${nsxt_policy_tier1_gateway.tier1-01.path}"
   subnet {
     cidr    = "172.16.1.1/24"
     }
