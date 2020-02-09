@@ -35,6 +35,14 @@ data "nsxt_policy_tier0_gateway" "tier0_gateway" {
 }
 
 #
+# Create the Tier-1 Gateway
+#
+resource "nsxt_policy_tier1_gateway" "tier1-01" {
+  description     = "Created by Terraform"
+  display_name    = "T1-CustomerX"
+}
+
+#
 # Creating the NSX-T Segments
 #
 resource "nsxt_policy_segment" "segment1" {
