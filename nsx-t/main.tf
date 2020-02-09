@@ -120,10 +120,3 @@ resource "nsxt_policy_segment" "segment3" {
     tag   = "db"
   }
 }
-
-#
-# Create load balancer
-#
-data "nsxt_policy_lb_service" "lb-01" {
-  display_name  = "LB-1"
-}
