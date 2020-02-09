@@ -39,7 +39,7 @@ data "nsxt_policy_tier0_gateway" "tier0_gateway" {
 #
 resource "nsxt_policy_tier1_gateway" "tier1-01" {
   description     = "Tier-1 gateway created by Terraform"
-  display_name    = "TF-Tier-1"
+  display_name    = "tf-tier-1"
   edge_cluster_path = data.nsxt_policy_edge_cluster.edge_cluster-01.path
   tier0_path      = data.nsxt_policy_tier0_gateway.tier0_gateway.path
   enable_standby_relocation = "false"
