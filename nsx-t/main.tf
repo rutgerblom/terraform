@@ -28,7 +28,7 @@ data "nsxt_policy_tier0_gateway" "tier0_gateway" {
 }
 
 #
-# Create new Tier-1 Gateway
+# Create Tier-1 Gateway
 #
 resource "nsxt_policy_tier1_gateway" "tier1-01" {
   description     = "Managed by Terraform"
@@ -45,7 +45,7 @@ resource "nsxt_policy_tier1_gateway" "tier1-01" {
 }
 
 #
-# Creating segments web
+# Creating segment web
 #
 resource "nsxt_policy_segment" "segment1" {
   description       = "Managed by Terraform"
@@ -68,7 +68,7 @@ resource "nsxt_policy_segment" "segment1" {
 }
 
 #
-# Creating segments app
+# Creating segment app
 #
 resource "nsxt_policy_segment" "segment2" {
   description       = "Managed by Terraform"
@@ -91,7 +91,7 @@ resource "nsxt_policy_segment" "segment2" {
 }
 
 #
-# Creating segments db
+# Creating segment db
 #
 resource "nsxt_policy_segment" "segment3" {
   description       = "Managed by Terraform"
