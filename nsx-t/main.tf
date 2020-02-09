@@ -61,7 +61,6 @@ resource "nsxt_policy_segment" "segment1" {
   connectivity_path = data.nsxt_policy_tier1_gateway.tier1-01.path
   subnet {
     cidr    = "172.16.1.1/24"
-    dhcp    = []
     network = "172.16.1.0/24"
     }
 
