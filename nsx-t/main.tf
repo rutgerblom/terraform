@@ -38,10 +38,10 @@ resource "nsxt_policy_tier1_gateway" "tier1-01" {
   enable_firewall = false
   failover_mode   = "NON_PREEMPTIVE"
   route_advertisement_types = [
-        "TIER1_LB_VIP",
-        "TIER1_NAT",
-        "TIER1_CONNECTED",
-        "TIER1_STATIC_ROUTES"]
+    "TIER1_LB_VIP",
+    "TIER1_NAT",
+    "TIER1_CONNECTED",
+    "TIER1_STATIC_ROUTES"]
 }
 
 #
@@ -57,8 +57,14 @@ data "nsxt_policy_tier1_gateway" "tier1-01" {
 resource "nsxt_policy_segment" "segment1" {
   description       = "Managed by Terraform"
   display_name      = "web"
-  transport_zone_path = var.transport_zone_path
+  transport_zone_path = data.nsxt_transport_zone.overlay_tz.path
   connectivity_path = data.nsxt_policy_tier1_gateway.tier1-01.path
+  subnets           = [
+    {
+      "gateway_address": "172.16.1.1/24",
+      "network": "172.16.1.0/24"
+    }
+  ]
 
   tag {
     scope = var.nsx_tag_scope
@@ -73,8 +79,14 @@ resource "nsxt_policy_segment" "segment1" {
 resource "nsxt_policy_segment" "segment2" {
   description       = "Managed by Terraform"
   display_name      = "app"
-  transport_zone_path = var.transport_zone_path
+  transport_zone_path = data.nsxt_transport_zone.overlay_tz.path
   connectivity_path = data.nsxt_policy_tier1_gateway.tier1-01.path
+    subnets           = [
+    {
+      "gateway_address": "172.16.2.1/24",
+      "network": "172.16.2.0/24"
+    }
+  ]
 
   tag {
     scope = var.nsx_tag_scope
@@ -89,8 +101,14 @@ resource "nsxt_policy_segment" "segment2" {
   resource "nsxt_policy_segment" "segment3" {
   description       = "Managed by Terraform"
   display_name      = "db"
-  transport_zone_path = var.transport_zone_path
+  transport_zone_path = data.nsxt_transport_zone.overlay_tz.path
   connectivity_path = data.nsxt_policy_tier1_gateway.tier1-01.path
+  subnets           = [
+    {
+      "gateway_address": "172.16.3.1/24",
+      "network": "172.16.3.0/24"
+    }
+  ]
 
   tag {
     scope = var.nsx_tag_scope
