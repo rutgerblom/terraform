@@ -38,10 +38,10 @@ data "nsxt_policy_tier0_gateway" "tier0_gateway" {
 # Create Tier-1 Gateway
 #
 resource "nsxt_policy_tier1_gateway" "tier1-01" {
-  description     = "Managed by Terraform"
-  display_name    = "T1-CustomerX"
+  description     = "Tier-1 gateway created by Terraform"
+  display_name    = "TF-Tier-1"
   edge_cluster_path = data.nsxt_policy_edge_cluster.edge_cluster-01.path
-  tier0_path      = "/infra/tier-0s/T0"
+  tier0_path      = nsxt_policy_tier0_gateway.ier0_gateway.path
   enable_standby_relocation = "false"
   enable_firewall = false
   failover_mode   = "NON_PREEMPTIVE"
@@ -56,8 +56,8 @@ resource "nsxt_policy_tier1_gateway" "tier1-01" {
 # Create segment web
 #
 resource "nsxt_policy_segment" "segment1" {
-  description       = "Managed by Terraform"
-  display_name      = "web"
+  description       = "Web segment"
+  display_name      = "tf-web"
   transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
   connectivity_path = nsxt_policy_tier1_gateway.tier1-01.path
   subnet {
@@ -79,8 +79,8 @@ resource "nsxt_policy_segment" "segment1" {
 # Create segment app
 #
 resource "nsxt_policy_segment" "segment2" {
-  description       = "Managed by Terraform"
-  display_name      = "web"
+  description       = "App segment"
+  display_name      = "tf-app"
   transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
   connectivity_path = nsxt_policy_tier1_gateway.tier1-01.path
   subnet {
@@ -102,8 +102,8 @@ resource "nsxt_policy_segment" "segment2" {
 # Create segment db
 #
 resource "nsxt_policy_segment" "segment3" {
-  description       = "Managed by Terraform"
-  display_name      = "db"
+  description       = "DB segment"
+  display_name      = "tf-db"
   transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
   connectivity_path = nsxt_policy_tier1_gateway.tier1-01.path
   subnet {

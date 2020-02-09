@@ -8,8 +8,8 @@ variable "nsx_password" {
   description = "NSX Manager password"
 }
 variable "nsx_tag_scope" {
-  description = "scope"
+  description = "default scope"
 }
 variable "nsx_tag" {
-  description = "NSX tag"
+  description = "default tag"
 }

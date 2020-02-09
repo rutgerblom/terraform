@@ -1,6 +1,5 @@
 nsx_manager = "nsxmanager.demo.local"
 nsx_username = "admin"
 nsx_password = "VMware1!VMware1!"
-nsx_tag_scope = "Environment"
-nsx_tag = "Demo"
-transport_zone_path = "/infra/sites/default/enforcement-points/default/transport-zones/12d25875-7960-4ceb-91f1-f39a24a57014"
+nsx_tag_scope = "managed_by"
+nsx_tag = "terraform"
