@@ -13,3 +13,5 @@ variable "nsx_tag_scope" {
 variable "nsx_tag" {
   description = "NSX tag"
 }
+
+

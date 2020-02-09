@@ -44,7 +44,7 @@ resource "nsxt_policy_segment" "segment1" {
   admin_state       = "UP"
   description       = "Segment created by Terraform"
   display_name      = "segment1"
-  transport_zone_id = "${data.nsxt_transport_zone.overlay_tz.id}"
+  transport_zone_id = "12d25875-7960-4ceb-91f1-f39a24a57014"
   replication_mode  = "MTEP"
 
   tag {
