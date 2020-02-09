@@ -53,7 +53,7 @@ resource "nsxt_policy_tier1_gateway" "tier1-01" {
 }
 
 #
-# Creating segment web
+# Create segment web
 #
 resource "nsxt_policy_segment" "segment1" {
   description       = "Managed by Terraform"
@@ -76,7 +76,7 @@ resource "nsxt_policy_segment" "segment1" {
 }
 
 #
-# Creating segment app
+# Create segment app
 #
 resource "nsxt_policy_segment" "segment2" {
   description       = "Managed by Terraform"
@@ -99,7 +99,7 @@ resource "nsxt_policy_segment" "segment2" {
 }
 
 #
-# Creating segment db
+# Create segment db
 #
 resource "nsxt_policy_segment" "segment3" {
   description       = "Managed by Terraform"
@@ -119,4 +119,11 @@ resource "nsxt_policy_segment" "segment3" {
     scope = "tier"
     tag   = "db"
   }
+}
+
+#
+# Create load balancer
+#
+data "nsxt_policy_lb_service" "lb-01" {
+  display_name  = "LB-1"
 }
