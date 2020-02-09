@@ -73,7 +73,7 @@ resource "nsxt_policy_segment" "segment2" {
     scope = "tier"
     tag   = "app"
   }
-  resource "nsxt_policy_segment" "segment" {
+  resource "nsxt_policy_segment" "segment3" {
   description       = "Created by Terraform"
   display_name      = "db"
   transport_zone_path = var.transport_zone_path
