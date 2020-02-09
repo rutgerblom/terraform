@@ -45,6 +45,13 @@ resource "nsxt_policy_tier1_gateway" "tier1-01" {
 }
 
 #
+# New Tier-1 Gateway as data resource
+#
+data "nsxt_policy_tier1_gateway" "tier1-01" {
+  display_name    = "T1-CustomerX"
+}
+
+#
 # Creating the NSX-T Segments
 #
 resource "nsxt_policy_segment" "segment1" {
