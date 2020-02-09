@@ -16,7 +16,7 @@ provider "nsxt" {
 #
 # The existing NSX-T Overlay Transport Zone
 #
-data "nsxt_transport_zone" "overlay_tz" {
+data "nsxt_policy_transport_zone" "overlay_tz" {
   display_name = "TZ-Overlay"
 }
 
@@ -57,7 +57,7 @@ data "nsxt_policy_tier1_gateway" "tier1-01" {
 resource "nsxt_policy_segment" "segment1" {
   description       = "Managed by Terraform"
   display_name      = "web"
-  transport_zone_path = data.nsxt_transport_zone.overlay_tz.path
+  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
   connectivity_path = data.nsxt_policy_tier1_gateway.tier1-01.path
   subnets           = [
     {
