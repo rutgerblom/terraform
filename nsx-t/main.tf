@@ -40,8 +40,6 @@ data "nsxt_policy_tier0_gateway" "tier0_gateway" {
 resource "nsxt_policy_tier1_gateway" "tier1-01" {
   description     = "Created by Terraform"
   display_name    = "T1-CustomerX"
-  edge_cluster_id = "1525164e-0ad8-4708-873c-0374e8d0c3aa"
-  advertise_connected_routes  = true
 }
 
 #
