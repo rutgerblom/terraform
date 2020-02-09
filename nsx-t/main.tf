@@ -14,14 +14,21 @@ provider "nsxt" {
 }
 
 #
-# The existing NSX-T Overlay Transport Zone
+# The NSX-T Edge Cluster (for Tier-1 gateways)
+#
+data "nsxt_policy_edge_cluster" "edge_cluster-01" {
+  display_name = "Tier-1 Cluster"
+}
+
+#
+# The NSX-T Overlay Transport Zone
 #
 data "nsxt_policy_transport_zone" "overlay_tz" {
   display_name = "TZ-Overlay"
 }
 
 #
-# The existing Tier-0 Gateway
+# The Tier-0 Gateway
 #
 data "nsxt_policy_tier0_gateway" "tier0_gateway" {
   display_name  = "T0"
@@ -33,6 +40,7 @@ data "nsxt_policy_tier0_gateway" "tier0_gateway" {
 resource "nsxt_policy_tier1_gateway" "tier1-01" {
   description     = "Managed by Terraform"
   display_name    = "T1-CustomerX"
+  edge_cluster_path = data.nsxt_policy_edge_cluster.edge_cluster-01.path
   tier0_path      = "/infra/tier-0s/T0"
   enable_standby_relocation = "false"
   enable_firewall = false
