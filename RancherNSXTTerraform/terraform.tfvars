@@ -24,7 +24,7 @@ ncp_image_location = "harbor.mydomain.co.uk/library/nsx-ncp-ubuntu:latest"
 rancher2_access_key = "token-tlszr"
 rancher2_secret_key = "x9ltkb5zb5z2kdjx2ztzp74qdx66rsvz49b4lww6z22tx4w5c2pgjg"
 rancher2_baseurl = "https://10.2.129.19"
-rancher2_clusterid = "mycluster"
+rancher2_clusterid = "cluster1"
 
 # Node-specific
 
