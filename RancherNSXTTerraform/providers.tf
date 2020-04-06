@@ -14,6 +14,6 @@ provider "vsphere" {
   password       = var.vsphere_password
   vsphere_server = var.vsphere_server
 
-  # If you have a self-signed cert
+  # If you have a self-signed certs
   allow_unverified_ssl = true
 }
