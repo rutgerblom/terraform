@@ -28,7 +28,7 @@ rancher2_clusterid = "mycluster"
 
 # Node-specific
 
-template_name = "templatename"
+template_name = "templatenames"
 template_num_cpu = "2"
 template_disk_size = "20000"
 node_datastore = "nfs01"
