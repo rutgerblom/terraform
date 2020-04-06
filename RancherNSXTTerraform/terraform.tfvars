@@ -1,16 +1,16 @@
 nsxt_edgecluster = "edgecluster"
-nsxt_host = "172.16.10.25"
+nsxt_host = "nsxmanager01.lab.local"
 nsxt_username = "admin"
-nsxt_password = "mynsxtpassword"
-nsxt_logical_tier0_router = "T0"
-nsxt_overlay_tz = "east-west"
+nsxt_password = "VMware1!VMware1!"
+nsxt_logical_tier0_router = "t0"
+nsxt_overlay_tz = "tz-overlay"
 
 # K8s-specific
 
 k8s_api_lb_ip = "10.80.80.10" # Leave this as-is, will be the IP address for our node.
-vsphere_user = "Terraform@vsphere.local"
-vsphere_password = "somepassword"
-vsphere_server = "172.16.10.22"
+vsphere_user = "administrator@vsphere.local"
+vsphere_password = "VMware1!"
+vsphere_server = "vcenter.lab.local"
 nsx_container_ipblocks = "10.101.0.0/16"
 external_ip_pools_lb = "10.10.201.0/24"
 clustername = "terraform_cluster_1"
