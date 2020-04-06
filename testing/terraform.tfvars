@@ -1,4 +1,4 @@
-# Provider
+# Providers
 provider_vsphere_host = "vcenter.demo.local"
 provider_vsphere_user = "administrator@vsphere.local"
 provider_vsphere_password = "VMware1!"
