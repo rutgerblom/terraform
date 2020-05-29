@@ -14,7 +14,7 @@ resource "aws_instance" "example" {
                 EOF 
 
     tags = {
-        Name = "serbl-machine"
+        Name = "test-machine"
     }
 }
 
