@@ -1,9 +1,10 @@
 provider "aws"{
+    version = "~> 2.64"
     region = "us-east-2"
 }
 
 resource "aws_s3_bucket" "terraform_state" {
-    bucket = "terraform-state" 
+    bucket = "terraform-state.serbl" 
 
     # Prevent accidental deletion of this bucket
     lifecycle {
@@ -27,7 +28,7 @@ resource "aws_s3_bucket" "terraform_state" {
   
 }
 
-resource "aws_dynanodb_table" "terraform_locks" {
+resource "aws_dynamodb_table" "terraform_locks" {
     name = "terraform-locks"
     billing_mode = "PAY_PER_REQUEST"
     hash_key = "LockID"
@@ -36,4 +37,23 @@ resource "aws_dynanodb_table" "terraform_locks" {
         name = "LockID"
         type = "S"
     }
+}
+
+terraform {
+    backend "s3" {
+        bucket = "terraform-state.serbl"
+        key = "global/s3/terraform.tfstate"
+        region = "us-east-2"
+        dynamodb_table  = "terraform-locks"
+        encrypt = "true"
+    }
+}
+output "s3_bucket_arn" {
+    value = aws_s3_bucket.terraform_state.arn
+    description = "The ARN of the S3 bucket"
+}
+
+output "dynamodb_table_name" {
+    value = aws_dynamodb_table.terraform_locks.name
+    description = "The name of the DynamoDB table"
 }
