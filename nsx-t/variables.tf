@@ -24,4 +24,4 @@ variable "tier0_gateway" {
 }
 variable "tier1_gateway" {
   description = "tier 1 gateway"
-}c
+}
