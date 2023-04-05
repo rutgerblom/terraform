@@ -26,6 +26,9 @@ data "nsxt_policy_edge_node" "node1" {
 data "nsxt_policy_transport_zone" "overlay_tz" {
   display_name = var.overlay_tz
 }
+data "nsxt_policy_transport_zone" "edge_tz" {
+  display_name = var.edge_tz
+}
 data "nsxt_policy_transport_zone" "vlan_tz" {
-  display_name = var.overlay_tz
+  display_name = var.vlan_tz
 }

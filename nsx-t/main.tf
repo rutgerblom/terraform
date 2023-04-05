@@ -26,6 +26,11 @@ resource "nsxt_policy_tier0_gateway" "tier0" {
     bgp_config {
     local_as_num            = each.value["local_as_number"]
   }
+
+  tag {
+    scope = var.nsx_tag_scope
+    tag   = var.nsx_tag
+  }
 }
 
 ######################################################################################################################################
@@ -42,6 +47,11 @@ resource "nsxt_policy_tier0_gateway_interface" "interface" {
   gateway_path              = nsxt_policy_tier0_gateway.tier0[each.value.gateway].path
   segment_path              = nsxt_policy_vlan_segment.segment[each.value.segment].path
   subnets                   = each.value["subnets"]
+
+  tag {
+    scope = var.nsx_tag_scope
+    tag   = var.nsx_tag
+  }
 }
 
 ######################################################################################################################################
@@ -61,6 +71,11 @@ resource "nsxt_policy_bgp_neighbor" "neighbor" {
   neighbor_address          = each.value["neighbor_address"]
   remote_as_num             = each.value["remote_as_num"]
   source_addresses          = nsxt_policy_tier0_gateway_interface.interface[each.value.source_interface].ip_addresses
+
+  tag {
+    scope = var.nsx_tag_scope
+    tag   = var.nsx_tag
+  }
 }
 
 ######################################################################################################################################
@@ -79,6 +94,11 @@ resource "nsxt_policy_tier1_gateway" "tier1" {
   failover_mode             = each.value["failover_mode"]
   route_advertisement_types = [
     "TIER1_CONNECTED"]
+
+  tag {
+    scope = var.nsx_tag_scope
+    tag   = var.nsx_tag
+  }
 }
 
 
