@@ -10,7 +10,6 @@ bgp_neighbor = {
   neighbor01 = {
     display_name              = "bgp_neighbor_1"
     description               = "BGP Neighbor #1"
-    bgp_path                  = string
     allow_as_in               = true
     graceful_restart_mode     = "HELPER_ONLY"
     hold_down_time            = 300

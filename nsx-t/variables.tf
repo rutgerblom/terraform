@@ -103,7 +103,6 @@ variable "bgp_neighbor" {
   type = map(object({
     display_name              = string
     description               = string
-    bgp_path                  = string
     allow_as_in               = bool
     graceful_restart_mode     = string
     hold_down_time            = number
