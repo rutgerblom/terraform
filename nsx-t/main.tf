@@ -52,7 +52,7 @@ resource "nsxt_policy_tier1_gateway" "tier1" {
   display_name              = each.value["display_name"]
   description               = each.value["description"]
   edge_cluster_path         = data.nsxt_policy_edge_cluster.edge_cluster-01.path
-  tier0_path                = data.nsxt_policy_tier0_gateway.tier0_gateway.path
+  tier0_path                = nsxt_policy_tier0_gateway.tier0[each.value.tier-0].path
   enable_standby_relocation = each.value["enable_standby_relocation"]
   enable_firewall           = each.value["enable_firewall"]
   failover_mode             = each.value["failover_mode"]
