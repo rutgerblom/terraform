@@ -22,7 +22,7 @@ variable "edge_cluster" {
 ##################################################################################
 # Tier-0 Gateways
 ##################################################################################
-variable "tier1_gateway" {
+variable "tier0_gateway" {
   type = map(object({
     display_name              = string
     description               = string
