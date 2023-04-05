@@ -16,6 +16,9 @@ variable "nsx_tag" {
 variable "overlay_tz" {
   description = "overlay tansport zone name"
 }
+variable "edge_tz" {
+  description = "overlay tansport zone name"
+}
 variable "vlan_tz" {
   description = "vlan tansport zone name"
 }
