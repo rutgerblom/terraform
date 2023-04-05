@@ -16,6 +16,9 @@ variable "nsx_tag" {
 variable "overlay_tz" {
   description = "overlay tansport zone name"
 }
+variable "vlan_tz" {
+  description = "vlan tansport zone name"
+}
 variable "edge_cluster" {
   description = "edge cluster name"
 }
@@ -51,7 +54,7 @@ variable "tier1_gateway" {
 
 
 ##################################################################################
-# SEGMENTS
+# SEGMENTS Overlay
 ##################################################################################
 variable "nsx_segment" {
   type = map(object({
@@ -59,6 +62,19 @@ variable "nsx_segment" {
     description               = string
     gateway_cidr              = string
     gateway                   = string
+  }))
+  description = "A mapping of objects for NSX Segments and their associated settings."
+}
+
+
+##################################################################################
+# SEGMENTS VLAN
+##################################################################################
+variable "nsx_segment_vlan" {
+  type = map(object({
+    display_name              = string
+    description               = string
+    vlan_ids                  = list(number)
   }))
   description = "A mapping of objects for NSX Segments and their associated settings."
 }

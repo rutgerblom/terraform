@@ -24,6 +24,13 @@ data "nsxt_policy_transport_zone" "overlay_tz" {
   display_name = var.overlay_tz
 }
 
+#
+# The NSX-T VLAN Transport Zone
+#
+data "nsxt_policy_transport_zone" "vlan_tz" {
+  display_name = var.overlay_tz
+}
+
 ######################################################################################################################################
 #                                                                                                                                    #
 # Tier-0 Gateways                                                                                                                    #
@@ -63,7 +70,7 @@ resource "nsxt_policy_tier1_gateway" "tier1" {
 
 ######################################################################################################################################
 #                                                                                                                                    #
-# Segments                                                                                                                           #
+# Overlay Segments                                                                                                                           #
 #                                                                                                                                    #
 ######################################################################################################################################
 
@@ -73,11 +80,30 @@ resource "nsxt_policy_segment" "segment" {
   description         = each.value["description"]
   transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
   connectivity_path   = nsxt_policy_tier1_gateway.tier1[each.value.gateway].path
-  vlan_ids            = each.value["vlan_ids"]
 
   subnet {
     cidr    = each.value["gateway_cidr"]
     }
+
+  tag {
+    scope = var.nsx_tag_scope
+    tag   = var.nsx_tag
+  }
+}
+
+
+######################################################################################################################################
+#                                                                                                                                    #
+# VLAN Segments                                                                                                                           #
+#                                                                                                                                    #
+######################################################################################################################################
+
+resource "nsxt_policy_vlan_segment" "segment" {
+  for_each            = var.nsx_segment_vlan
+  display_name        = each.value["display_name"]
+  description         = each.value["description"]
+  transport_zone_path = data.nsxt_policy_transport_zone.vlan_tz.path
+  vlan_ids            = each.value["vlan_ids"]
 
   tag {
     scope = var.nsx_tag_scope
