@@ -25,3 +25,6 @@ variable "tier0_gateway" {
 variable "tier1_gateway" {
   description = "tier 1 gateway name"
 }
+variable "nsx_segment" {
+  description = "segment"
+}

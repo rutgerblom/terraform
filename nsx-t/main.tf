@@ -31,7 +31,6 @@ data "nsxt_policy_transport_zone" "overlay_tz" {
   display_name = var.overlay_tz
 }
 
-
 #
 # Create Tier-1 Gateway
 #
@@ -47,71 +46,27 @@ resource "nsxt_policy_tier1_gateway" "tier-1-03" {
     "TIER1_CONNECTED"]
 }
 
-#
-# Create segment web
-#
-resource "nsxt_policy_segment" "segment1" {
-  description       = "Web segment"
-  display_name      = "tf-web"
+
+######################################################################################################################################
+#                                                                                                                                    #
+# Segments                                                                                                                           #
+#                                                                                                                                    #
+######################################################################################################################################
+
+resource "nsxt_policy_segmentt" "segment" {
+  for_each            = var.nsx_segment
+  display_name        = each.value["display_name"]
+  description         = each.value["description"]
   transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
-  connectivity_path = nsxt_policy_tier1_gateway.tier1-01.path
+  connectivity_path   = nsxt_policy_tier1_gateway.tier1-01.path
+  vlan_ids            = each.value["vlan_ids"]
+
   subnet {
-    cidr    = "172.16.1.1/24"
+    cidr    = each.value["gateway_cidr"]
     }
 
   tag {
     scope = var.nsx_tag_scope
     tag   = var.nsx_tag
-  }
-
-  tag {
-    scope = "tier"
-    tag   = "web"
-  }
-}
-
-#
-# Create segment app
-#
-resource "nsxt_policy_segment" "segment2" {
-  description       = "App segment"
-  display_name      = "tf-app"
-  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
-  connectivity_path = nsxt_policy_tier1_gateway.tier1-01.path
-  subnet {
-    cidr    = "172.16.2.1/24"
-    }
-
-  tag {
-    scope = var.nsx_tag_scope
-    tag   = var.nsx_tag
-  }
-
-  tag {
-    scope = "tier"
-    tag   = "app"
-  }
-}
-
-#
-# Create segment db
-#
-resource "nsxt_policy_segment" "segment3" {
-  description       = "DB segment"
-  display_name      = "tf-db"
-  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
-  connectivity_path = nsxt_policy_tier1_gateway.tier1-01.path
-  subnet {
-    cidr    = "172.16.3.1/24"
-    }
-
-  tag {
-    scope = var.nsx_tag_scope
-    tag   = var.nsx_tag
-  }
-
-  tag {
-    scope = "tier"
-    tag   = "db"
   }
 }
