@@ -25,6 +25,7 @@ variable "edge_cluster" {
 variable "edge_node" {
   description = "edge node name"
 }
+
 ##################################################################################
 # Tier-0 Gateways
 ##################################################################################
@@ -70,7 +71,6 @@ variable "tier1_gateway" {
   description = "A mapping of objects for NSX Tier-1 Gateways and their associated settings."
 }
 
-
 ##################################################################################
 # SEGMENTS Overlay
 ##################################################################################
@@ -84,7 +84,6 @@ variable "nsx_segment" {
   description = "A mapping of objects for NSX Segments and their associated settings."
 }
 
-
 ##################################################################################
 # SEGMENTS VLAN
 ##################################################################################
@@ -95,4 +94,23 @@ variable "nsx_segment_vlan" {
     vlan_ids                  = list(number)
   }))
   description = "A mapping of objects for NSX Segments and their associated settings."
+}
+
+##################################################################################
+# BGP Neighbors
+##################################################################################
+variable "nsx_ngp_neighbor" {
+  type = map(object({
+    display_name              = string
+    description               = string
+    bgp_path                  = string
+    allow_as_in               = bool
+    graceful_restart_mode     = string
+    hold_down_time            = number
+    keep_alive_time           = number
+    neighbor_address          = string
+    remote_as_num             = number
+    source_addresses          = string
+  }))
+  description = "A mapping of objects for NSX BGP neighbors and their associated settings."
 }
