@@ -41,6 +41,7 @@ variable "tier0_gateway" {
     ha_mode                   = string
     local_as_number           = number
     inter_sr_ibgp             = bool
+    multipath_relax           = bool
   }))
   description = "A mapping of objects for NSX Tier-0 Gateways and their associated settings."
 }
