@@ -110,6 +110,7 @@ variable "bgp_neighbor" {
     neighbor_address          = string
     remote_as_num             = number
     source_interface          = string
+    tier-0                    = string
   }))
   description = "A mapping of objects for NSX BGP neighbors and their associated settings."
 }
