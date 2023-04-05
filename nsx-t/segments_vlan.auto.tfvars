@@ -1,7 +1,7 @@
 ###################################################################################################################################
 #                                                                                                                                 #
-# NSX Segments                                                                                                                    #
-# Documentation: https://registry.terraform.io/providers/vmware/nsxt/latest/docs/resources/policy_segment                         #
+# NSX VLAN Segments                                                                                                               #
+# Documentation: https://registry.terraform.io/providers/vmware/nsxt/latest/docs/resources/policy_vlan_segment                    #
 #                https://registry.terraform.io/providers/vmware/nsxt/latest/docs                                                  #
 #                                                                                                                                 #
 ###################################################################################################################################
