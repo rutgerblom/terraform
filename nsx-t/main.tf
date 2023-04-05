@@ -60,7 +60,7 @@ resource "nsxt_policy_bgp_neighbor" "neighbor" {
   keep_alive_time           = each.value["keep_alive_timer"]
   neighbor_address          = each.value["neighbor_address"]
   remote_as_num             = each.value["remote_as_num"]
-  source_addresses          = nsxt_policy_tier0_gateway_interface.interface[each.value.source_interface]
+  source_addresses          = nsxt_policy_tier0_gateway_interface.interface[each.value.source_interface].ip_addresses
 }
 
 ######################################################################################################################################
