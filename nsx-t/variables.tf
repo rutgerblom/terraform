@@ -40,7 +40,7 @@ variable "tier0_gateway" {
 ##################################################################################
 # Tier-0 Gateway Interfaces
 ##################################################################################
-variable "tier0_interfaces" {
+variable "tier0_gateway_interface" {
   type = map(object({
     display_name              = string
     description               = string
