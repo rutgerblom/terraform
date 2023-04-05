@@ -13,7 +13,7 @@ tier0_gateway_interface = {
     type                      = "EXTERNAL"
     gateway                   = "gateway01"
     segment                   = "segment01"
-    subnets                   = ["192.168.15.1/24"]
+    subnets                   = ["192.168.15.2/24"]
   }
   interface02 = {
     display_name              = "en01_uplink-02"
@@ -21,6 +21,6 @@ tier0_gateway_interface = {
     type                      = "EXTERNAL"
     gateway                   = "gateway01"
     segment                   = "segment02"
-    subnets                   = ["192.168.16.1/24"]
+    subnets                   = ["192.168.16.2/24"]
   }
 }
