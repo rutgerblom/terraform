@@ -38,6 +38,21 @@ variable "tier0_gateway" {
 }
 
 ##################################################################################
+# Tier-0 Gateway Interfaces
+##################################################################################
+variable "tier0_interfaces" {
+  type = map(object({
+    display_name              = string
+    description               = string
+    type                      = string
+    gateway                   = string
+    segment                   = string
+    subnets                   = list(string)
+  }))
+  description = "A mapping of objects for NSX Tier-0 Gateway Interfaces and their associated settings."
+}
+
+##################################################################################
 # Tier-1 Gateways
 ##################################################################################
 variable "tier1_gateway" {

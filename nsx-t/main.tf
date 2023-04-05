@@ -51,6 +51,20 @@ resource "nsxt_policy_tier0_gateway" "tier0" {
 
 ######################################################################################################################################
 #                                                                                                                                    #
+# Tier-0 Gateway Interfaces                                                                                                          #
+#                                                                                                                                    #
+######################################################################################################################################
+resource "nsxt_policy_tier0_gateway_interface" "interface" {
+  for_each                  = var.tier0_interface
+  display_name              = each.value["display_name"]
+  description               = each.value["description"]
+  type                      = each.value["type"]
+  gateway_path              = nsxt_policy_tier0_gateway.tier0[each.value.gateway].path
+  segment_path              = nsxt_policy_segment.segment[each.value.segment].path
+}
+
+######################################################################################################################################
+#                                                                                                                                    #
 # Tier-1 Gateways                                                                                                                    #
 #                                                                                                                                    #
 ######################################################################################################################################
