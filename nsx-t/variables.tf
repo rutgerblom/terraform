@@ -13,3 +13,15 @@ variable "nsx_tag_scope" {
 variable "nsx_tag" {
   description = "default tag"
 }
+variable "overlay_tz" {
+  description = "overlay tansport zone"
+}
+variable "edge_cluster" {
+  description = "edge cluster"
+}
+variable "tier0_gateway" {
+  description = "tier 0 gateway"
+}
+variable "tier1_gateway" {
+  description = "tier 1 gateway"
+}c
