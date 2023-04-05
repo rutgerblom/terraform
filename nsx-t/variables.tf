@@ -22,6 +22,9 @@ variable "vlan_tz" {
 variable "edge_cluster" {
   description = "edge cluster name"
 }
+variable "edge_node" {
+  description = "edge node name"
+}
 ##################################################################################
 # Tier-0 Gateways
 ##################################################################################

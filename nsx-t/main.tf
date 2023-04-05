@@ -10,27 +10,6 @@ provider "nsxt" {
   max_retries           = 2
 }
 
-#
-# The Edge Cluster (for Tier-1 gateways)
-#
-data "nsxt_policy_edge_cluster" "edge_cluster-01" {
-  display_name = var.edge_cluster
-}
-
-#
-# The NSX-T Overlay Transport Zone
-#
-data "nsxt_policy_transport_zone" "overlay_tz" {
-  display_name = var.overlay_tz
-}
-
-#
-# The NSX-T VLAN Transport Zone
-#
-data "nsxt_policy_transport_zone" "vlan_tz" {
-  display_name = var.overlay_tz
-}
-
 ######################################################################################################################################
 #                                                                                                                                    #
 # Tier-0 Gateways                                                                                                                    #
@@ -59,9 +38,10 @@ resource "nsxt_policy_tier0_gateway_interface" "interface" {
   display_name              = each.value["display_name"]
   description               = each.value["description"]
   type                      = each.value["type"]
+  edge_node_path            = data.nsxt_policy_edge_node.node1.path
   gateway_path              = nsxt_policy_tier0_gateway.tier0[each.value.gateway].path
   segment_path              = nsxt_policy_vlan_segment.segment[each.value.segment].path
-  subnets                    = each.value["subnets"]
+  subnets                   = each.value["subnets"]
 }
 
 ######################################################################################################################################
