@@ -1,7 +1,7 @@
 ###################################################################################################################################
 #                                                                                                                                 #
 # NSX Tier-0 Gateway Interfaces                                                                                                   #
-# Documentation: hhttps://registry.terraform.io/providers/vmware/nsxt/latest/docs/resources/policy_tier0_gateway_interface        #
+# Documentation: https://registry.terraform.io/providers/vmware/nsxt/latest/docs/resources/policy_tier0_gateway_interface         #
 #                https://registry.terraform.io/providers/vmware/nsxt/latest/docs                                                  #
 #                                                                                                                                 #
 ###################################################################################################################################
