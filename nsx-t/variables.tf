@@ -110,7 +110,7 @@ variable "nsx_ngp_neighbor" {
     keep_alive_time           = number
     neighbor_address          = string
     remote_as_num             = number
-    source_addresses          = string
+    source_interface          = string
   }))
   description = "A mapping of objects for NSX BGP neighbors and their associated settings."
 }

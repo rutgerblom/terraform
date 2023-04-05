@@ -15,8 +15,8 @@ bgp_neighbor = {
     graceful_restart_mode     = "HELPER_ONLY"
     hold_down_time            = 300
     keep_alive_time           = 100
-    neighbor_address          = string
+    neighbor_address          = "192.168.15.1"
     remote_as_num             = 65100
-    source_addresses          = string
+    source_interface          = "interface01"
   }
 }

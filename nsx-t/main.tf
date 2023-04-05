@@ -46,6 +46,25 @@ resource "nsxt_policy_tier0_gateway_interface" "interface" {
 
 ######################################################################################################################################
 #                                                                                                                                    #
+# BGP Neighbors                                                                                                                      #
+#                                                                                                                                    #
+######################################################################################################################################
+resource "nsxt_policy_bgp_neighbor" "neighbor" {
+  for_each                  = var.bgp_neighbor
+  display_name              = each.value["display_name"]
+  description               = each.value["description"]
+  bgp_path                  = string
+  allow_as_in               = each.value["allow_as_in"]
+  graceful_restart_mode     = each.value["graceful_restart_mode"]
+  hold_down_time            = each.value["hold_down_timer"]
+  keep_alive_time           = each.value["keep_alive_timer"]
+  neighbor_address          = each.value["neighbor_address"]
+  remote_as_num             = each.value["remote_as_num"]
+  source_addresses          = nsxt_policy_tier0_gateway_interface.interface[each.value.source_interface]
+}
+
+######################################################################################################################################
+#                                                                                                                                    #
 # Tier-1 Gateways                                                                                                                    #
 #                                                                                                                                    #
 ######################################################################################################################################
