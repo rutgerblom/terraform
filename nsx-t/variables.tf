@@ -22,9 +22,32 @@ variable "edge_cluster" {
 variable "tier0_gateway" {
   description = "tier 0 gateway name"
 }
+
+##################################################################################
+# Tier-1 Gateways
+##################################################################################
 variable "tier1_gateway" {
-  description = "tier 1 gateway name"
+  type = map(object({
+    display_name              = string
+    description               = string
+    enable_standby_relocation = bool
+    enable_firewall           = bool
+    failover_mode             = string
+  }))
+  description = "A mapping of objects for NSX Tier-1 Gateways and their associated settings."
 }
+
+
+##################################################################################
+# SEGMENTS
+##################################################################################
 variable "nsx_segment" {
-  description = "segment"
+  type = map(object({
+    display_name              = string
+    description               = string
+    vlan_ids                  = list(string)
+    gateway_cidr              = string
+    gateway                   = string
+  }))
+  description = "A mapping of objects for NSX Segments and their associated settings."
 }
