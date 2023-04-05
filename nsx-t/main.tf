@@ -30,7 +30,7 @@ data "nsxt_policy_transport_zone" "overlay_tz" {
 #                                                                                                                                    #
 ######################################################################################################################################
 resource "nsxt_policy_tier0_gateway" "tier0" {
-  for_each                  = var.tier1_gateway
+  for_each                  = var.tier0_gateway
   display_name              = each.value["display_name"]
   description               = each.value["description"]
   edge_cluster_path         = data.nsxt_policy_edge_cluster.edge_cluster-01.path
