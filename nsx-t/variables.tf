@@ -19,8 +19,19 @@ variable "overlay_tz" {
 variable "edge_cluster" {
   description = "edge cluster name"
 }
-variable "tier0_gateway" {
-  description = "tier 0 gateway name"
+##################################################################################
+# Tier-0 Gateways
+##################################################################################
+variable "tier1_gateway" {
+  type = map(object({
+    display_name              = string
+    description               = string
+    enable_firewall           = bool
+    failover_mode             = string
+    ha_mode                   = string
+    local_as_number           = number
+  }))
+  description = "A mapping of objects for NSX Tier-0 Gateways and their associated settings."
 }
 
 ##################################################################################
