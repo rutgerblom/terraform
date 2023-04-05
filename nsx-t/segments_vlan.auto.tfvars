@@ -16,6 +16,5 @@ nsx_segment_vlan = {
     display_name              = "sg-vlan-2712"
     description               = "VLAN segment for BGP uplink2"
     vlan_ids                  = [2712]
-
   }
 }
