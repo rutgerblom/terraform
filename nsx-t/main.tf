@@ -60,7 +60,7 @@ resource "nsxt_policy_tier0_gateway_interface" "interface" {
   description               = each.value["description"]
   type                      = each.value["type"]
   gateway_path              = nsxt_policy_tier0_gateway.tier0[each.value.gateway].path
-  segment_path              = nsxt_policy_segment.segment[each.value.segment].path
+  segment_path              = nsxt_policy_vlan_segment.segment[each.value.segment].path
   subnets                    = each.value["subnets"]
 }
 
