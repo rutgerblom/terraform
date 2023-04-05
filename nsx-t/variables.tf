@@ -99,7 +99,7 @@ variable "nsx_segment_vlan" {
 ##################################################################################
 # BGP Neighbors
 ##################################################################################
-variable "nsx_ngp_neighbor" {
+variable "nsx_bgp_neighbor" {
   type = map(object({
     display_name              = string
     description               = string
