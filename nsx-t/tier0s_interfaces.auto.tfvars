@@ -15,4 +15,12 @@ tier0_gateway_interface = {
     segment                   = "segment01"
     subnets                   = ["192.168.15.1/24"]
   }
+  interface02 = {
+    display_name              = "en01_uplink-02"
+    description               = "BGP Uplink 02"
+    type                      = "EXTERNAL"
+    gateway                   = "gateway01"
+    segment                   = "segment02"
+    subnets                   = ["192.168.16.1/24"]
+  }
 }
