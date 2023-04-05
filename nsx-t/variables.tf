@@ -14,14 +14,14 @@ variable "nsx_tag" {
   description = "default tag"
 }
 variable "overlay_tz" {
-  description = "overlay tansport zone"
+  description = "overlay tansport zone name"
 }
 variable "edge_cluster" {
-  description = "edge cluster"
+  description = "edge cluster name"
 }
 variable "tier0_gateway" {
-  description = "tier 0 gateway"
+  description = "tier 0 gateway name"
 }
 variable "tier1_gateway" {
-  description = "tier 1 gateway"
+  description = "tier 1 gateway name"
 }

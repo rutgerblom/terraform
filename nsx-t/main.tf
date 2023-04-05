@@ -14,40 +14,37 @@ provider "nsxt" {
 # The Tier-0 Gateway
 #
 data "nsxt_policy_tier0_gateway" "tier0_gateway" {
-  display_name  = "T0"
+  display_name  = var.tier0_gateway
 }
 
 #
 # The Edge Cluster (for Tier-1 gateways)
 #
 data "nsxt_policy_edge_cluster" "edge_cluster-01" {
-  display_name = "Tier-1 Cluster"
+  display_name = var.edge_cluster
 }
 
 #
 # The NSX-T Overlay Transport Zone
 #
 data "nsxt_policy_transport_zone" "overlay_tz" {
-  display_name = "TZ-Overlay"
+  display_name = var.overlay_tz
 }
 
 
 #
 # Create Tier-1 Gateway
 #
-resource "nsxt_policy_tier1_gateway" "tier1-01" {
+resource "nsxt_policy_tier1_gateway" "tier-1-03" {
   description     = "Tier-1 gateway created by Terraform"
-  display_name    = "tf-tier-1"
+  display_name    = var.tier1_gateway
   edge_cluster_path = data.nsxt_policy_edge_cluster.edge_cluster-01.path
   tier0_path      = data.nsxt_policy_tier0_gateway.tier0_gateway.path
   enable_standby_relocation = "false"
   enable_firewall = false
   failover_mode   = "NON_PREEMPTIVE"
   route_advertisement_types = [
-    "TIER1_LB_VIP",
-    "TIER1_NAT",
-    "TIER1_CONNECTED",
-    "TIER1_STATIC_ROUTES"]
+    "TIER1_CONNECTED"]
 }
 
 #
