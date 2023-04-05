@@ -57,7 +57,6 @@ variable "nsx_segment" {
   type = map(object({
     display_name              = string
     description               = string
-    vlan_ids                  = list(string)
     gateway_cidr              = string
     gateway                   = string
   }))
