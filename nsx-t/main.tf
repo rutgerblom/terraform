@@ -55,7 +55,7 @@ resource "nsxt_policy_tier0_gateway" "tier0" {
 #                                                                                                                                    #
 ######################################################################################################################################
 resource "nsxt_policy_tier0_gateway_interface" "interface" {
-  for_each                  = var.tier0_interface
+  for_each                  = var.tier0_gateway_interface
   display_name              = each.value["display_name"]
   description               = each.value["description"]
   type                      = each.value["type"]
