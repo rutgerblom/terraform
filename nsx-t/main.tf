@@ -73,8 +73,4 @@ resource "nsxt_policy_segment" "segment" {
     scope = var.nsx_tag_scope
     tag   = var.nsx_tag
   }
-
-  depends_on = [
-    nsxt_policy_tier1_gateway.tier1["gateway01"]
-    ]
 }
