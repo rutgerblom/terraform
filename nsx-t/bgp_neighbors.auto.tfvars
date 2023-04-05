@@ -17,5 +17,6 @@ bgp_neighbor = {
     neighbor_address          = "192.168.15.1"
     remote_as_num             = 65100
     source_interface          = "interface01"
+    tier-0                    = "gateway01"
   }
 }
