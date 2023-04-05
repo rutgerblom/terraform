@@ -53,7 +53,7 @@ resource "nsxt_policy_bgp_neighbor" "neighbor" {
   for_each                  = var.bgp_neighbor
   display_name              = each.value["display_name"]
   description               = each.value["description"]
-  bgp_path                  = nsxt_policy_tier0_gateway.tier0.bgp_config.0.path
+  bgp_path                  = nsxt_policy_tier0_gateway.tier0.bgp_config.path
   allow_as_in               = each.value["allow_as_in"]
   graceful_restart_mode     = each.value["graceful_restart_mode"]
   hold_down_time            = each.value["hold_down_timer"]
