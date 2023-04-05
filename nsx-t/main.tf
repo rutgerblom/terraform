@@ -61,7 +61,7 @@ resource "nsxt_policy_tier0_gateway_interface" "interface" {
   type                      = each.value["type"]
   gateway_path              = nsxt_policy_tier0_gateway.tier0[each.value.gateway].path
   segment_path              = nsxt_policy_segment.segment[each.value.segment].path
-  subnet                    = each.value["subnets"]
+  subnets                    = each.value["subnets"]
 }
 
 ######################################################################################################################################
