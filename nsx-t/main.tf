@@ -13,7 +13,7 @@ provider "nsxt" {
 #
 # The Edge Cluster (for Tier-1 gateways)
 #
-data "nsxt_policy_edge_cluster" "Edge Cluster" {
+data "nsxt_policy_edge_cluster" "edge_cluster-01" {
   display_name = var.edge_cluster
 }
 
@@ -38,14 +38,14 @@ data "nsxt_policy_transport_zone" "overlay_tz" {
 #                                                                                                                                    #
 ######################################################################################################################################
 resource "nsxt_policy_tier1_gateway" "tier-1-03" {
-  for_each =      var.tier1_gateway
-  display_name        = each.value["display_name"]
-  description         = each.value["description"]
-  edge_cluster_path = data.nsxt_policy_edge_cluster.edge_cluster-01.path
-  tier0_path      = data.nsxt_policy_tier0_gateway.tier0_gateway.path
+  for_each                  = var.tier1_gateway
+  display_name              = each.value["display_name"]
+  description               = each.value["description"]
+  edge_cluster_path         = data.nsxt_policy_edge_cluster.edge_cluster-01.path
+  tier0_path                = data.nsxt_policy_tier0_gateway.tier0_gateway.path
   enable_standby_relocation = each.value["enable_standby_relocation"]
-  enable_firewall = each.value["enable_firewall"]
-  failover_mode   = each.value["failover_mode"]
+  enable_firewall           = each.value["enable_firewall"]
+  failover_mode             = each.value["failover_mode"]
   route_advertisement_types = [
     "TIER1_CONNECTED"]
 }
