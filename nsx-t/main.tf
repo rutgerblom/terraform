@@ -38,7 +38,7 @@ resource "nsxt_policy_tier0_gateway" "tier0" {
   enable_firewall           = each.value["enable_firewall"]
   failover_mode             = each.value["failover_mode"]
     bgp_config {
-    local_as_num            = each.value["local_as_number"]
+    local_as_number         = each.value["local_as_number"]
   }
 }
 
