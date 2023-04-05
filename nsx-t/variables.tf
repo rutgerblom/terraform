@@ -40,6 +40,7 @@ variable "tier0_gateway" {
     failover_mode             = string
     ha_mode                   = string
     local_as_number           = number
+    inter_sr_ibgp             = bool
   }))
   description = "A mapping of objects for NSX Tier-0 Gateways and their associated settings."
 }

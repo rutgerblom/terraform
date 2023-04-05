@@ -25,6 +25,7 @@ resource "nsxt_policy_tier0_gateway" "tier0" {
   failover_mode             = each.value["failover_mode"]
     bgp_config {
     local_as_num            = each.value["local_as_number"]
+    inter_sr_ibgp           = each.value["inter_sr_ibgp"]
   }
 
   tag {

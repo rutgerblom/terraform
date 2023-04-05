@@ -14,5 +14,6 @@ tier0_gateway = {
     failover_mode             = "NON_PREEMPTIVE"
     ha_mode                   = "ACTIVE_ACTIVE"
     local_as_number           = 65101
+    inter_sr_ibgp             = true
   }
 }
