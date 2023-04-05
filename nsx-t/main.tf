@@ -56,8 +56,8 @@ resource "nsxt_policy_bgp_neighbor" "neighbor" {
   bgp_path                  = nsxt_policy_tier0_gateway.tier0[each.value.tier-0].bgp_config[0].path
   allow_as_in               = each.value["allow_as_in"]
   graceful_restart_mode     = each.value["graceful_restart_mode"]
-  hold_down_time            = each.value["hold_down_timer"]
-  keep_alive_time           = each.value["keep_alive_timer"]
+  hold_down_time            = each.value["hold_down_time"]
+  keep_alive_time           = each.value["keep_alive_time"]
   neighbor_address          = each.value["neighbor_address"]
   remote_as_num             = each.value["remote_as_num"]
   source_addresses          = nsxt_policy_tier0_gateway_interface.interface[each.value.source_interface].ip_addresses
