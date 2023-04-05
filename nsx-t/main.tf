@@ -37,7 +37,7 @@ data "nsxt_policy_transport_zone" "overlay_tz" {
 # Tier-1 Gateways                                                                                                                    #
 #                                                                                                                                    #
 ######################################################################################################################################
-resource "nsxt_policy_tier1_gateway" "tier-1-03" {
+resource "nsxt_policy_tier1_gateway" "tier1" {
   for_each                  = var.tier1_gateway
   display_name              = each.value["display_name"]
   description               = each.value["description"]
@@ -62,7 +62,7 @@ resource "nsxt_policy_segment" "segment" {
   display_name        = each.value["display_name"]
   description         = each.value["description"]
   transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
-  connectivity_path   = nsxt_policy_tier1_gateway.tier-1-03.path
+  connectivity_path   = nsxt_policy_tier1_gateway.tier1[each.value.cluster].id
   vlan_ids            = each.value["vlan_ids"]
 
   subnet {
@@ -75,6 +75,6 @@ resource "nsxt_policy_segment" "segment" {
   }
 
   depends_on = [
-    nsxt_policy_tier1_gateway["gateway01"]
+    nsxt_policy_tier1_gateway.tier1["gateway01"]
     ]
 }
