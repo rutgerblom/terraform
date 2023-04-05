@@ -12,5 +12,6 @@ nsx_segment = {
     description               = "Overlay segment for backend worloads"
     vlan_ids                  = []
     gateway_cidr              = "10.203.60.1/24"
+    gateway                   = "Tier-1-03"
   }
 }
