@@ -9,7 +9,7 @@
 nsx_segment = {
   segment01 = {
     display_name              = "sg-backend"
-    description               = "Overlay segment for backend worloads"
+    description               = "Overlay segment for backend workloads"
     gateway_cidr              = "10.203.60.1/24"
     gateway                   = "gateway01"
   }
