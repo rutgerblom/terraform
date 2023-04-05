@@ -12,10 +12,10 @@ bgp_neighbor = {
     description               = "BGP Neighbor #1"
     allow_as_in               = true
     graceful_restart_mode     = "HELPER_ONLY"
-    hold_down_time            = 300
-    keep_alive_time           = 100
+    hold_down_time            = "300"
+    keep_alive_time           = "100"
     neighbor_address          = "192.168.15.1"
-    remote_as_num             = 65100
+    remote_as_num             = "65100"
     source_interface          = "interface01"
   }
 }
