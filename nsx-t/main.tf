@@ -53,7 +53,7 @@ resource "nsxt_policy_tier1_gateway" "tier-1-03" {
 #                                                                                                                                    #
 ######################################################################################################################################
 
-resource "nsxt_policy_segmentt" "segment" {
+resource "nsxt_policy_segment" "segment" {
   for_each            = var.nsx_segment
   display_name        = each.value["display_name"]
   description         = each.value["description"]
