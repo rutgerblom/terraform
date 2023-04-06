@@ -33,16 +33,6 @@ variable "edge_node" {
 # Tier-0 Gateways
 ##################################################################################
 variable "tier0_gateway" {
-  type = map(object({
-    display_name              = string
-    description               = string
-    enable_firewall           = bool
-    failover_mode             = string
-    ha_mode                   = string
-    local_as_number           = number
-    inter_sr_ibgp             = bool
-    multipath_relax           = bool
-  }))
   description = "A mapping of objects for NSX Tier-0 Gateways and associated settings."
 }
 
@@ -50,14 +40,6 @@ variable "tier0_gateway" {
 # Tier-0 Gateway Interfaces
 ##################################################################################
 variable "tier0_gateway_interface" {
-  type = map(object({
-    display_name              = string
-    description               = string
-    type                      = string
-    gateway                   = string
-    segment                   = string
-    subnets                   = list(string)
-  }))
   description = "A mapping of objects for NSX Tier-0 Gateway Interfaces and associated settings."
 }
 
@@ -65,13 +47,6 @@ variable "tier0_gateway_interface" {
 # Tier-0 Gateway Route Redistribution
 ##################################################################################
 variable "tier0_gateway_redistribution" {
-  type = map(object({
-    bgp_enabled               = bool
-    ospf_enabled              = bool
-    rule_name                 = string
-    rule_types                = list(string)
-    tier-0                    = string
-  }))
   description = "A mapping of objects for NSX Tier-0 Gateway Route Re-distribution config and associated settings."
 }
 
@@ -79,15 +54,6 @@ variable "tier0_gateway_redistribution" {
 # Tier-1 Gateways
 ##################################################################################
 variable "tier1_gateway" {
-  type = map(object({
-    display_name              = string
-    description               = string
-    enable_standby_relocation = bool
-    enable_firewall           = bool
-    failover_mode             = string
-    route_advertisement_types = list(string)
-    tier-0                    = string
-  }))
   description = "A mapping of objects for NSX Tier-1 Gateways and associated settings."
 }
 
@@ -95,12 +61,6 @@ variable "tier1_gateway" {
 # Overlay segments
 ##################################################################################
 variable "nsx_segment" {
-  type = map(object({
-    display_name              = string
-    description               = string
-    gateway_cidr              = string
-    gateway                   = string
-  }))
   description = "A mapping of objects for NSX Segments and associated settings."
 }
 
@@ -108,11 +68,6 @@ variable "nsx_segment" {
 # VLAN segments
 ##################################################################################
 variable "nsx_segment_vlan" {
-  type = map(object({
-    display_name              = string
-    description               = string
-    vlan_ids                  = list(number)
-  }))
   description = "A mapping of objects for NSX Segments and associated settings."
 }
 
