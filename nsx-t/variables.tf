@@ -146,7 +146,6 @@ variable "group" {
     member_type               = string
     operator                  = string
     value                     = string
-    ipaddress_expression      = list(string)
   }))
   description = "A mapping of objects for NSX Group and associated settings."
 }

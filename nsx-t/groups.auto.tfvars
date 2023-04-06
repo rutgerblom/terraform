@@ -14,7 +14,6 @@ group = {
     member_type               = "VirtualMachine"
     operator                  = "EQUALS"
     value                     = "Application|AD"
-    ipaddress_expression      = []
   }
   group02 = {
     display_name              = "SG-DNS"
@@ -23,7 +22,6 @@ group = {
     member_type               = "VirtualMachine"
     operator                  = "EQUALS"
     value                     = "Application|DNS"
-    ipaddress_expression      = []
   }
   group03 = {
     display_name              = "SG-NTP"
@@ -32,7 +30,6 @@ group = {
     member_type               = "VirtualMachine"
     operator                  = "EQUALS"
     value                     = "Application|NTP"
-    ipaddress_expression      = []
   }
   group04 = {
     display_name              = "SG-Syslog"
@@ -41,7 +38,6 @@ group = {
     member_type               = "VirtualMachine"
     operator                  = "EQUALS"
     value                     = "Application|Syslog"
-    ipaddress_expression      = []
   }
   group05 = {
     display_name              = "SG-Backup"
@@ -50,15 +46,5 @@ group = {
     member_type               = "VirtualMachine"
     operator                  = "EQUALS"
     value                     = "Application|Backup"
-    ipaddress_expression      = []
-  }
-  group06 = {
-    display_name              = "SG-RFC1918"
-    description               = "Group contains RFC 1918 IP subnets"
-    key                       = null
-    member_type               = null
-    operator                  = null
-    value                     = null
-    ipaddress_expression      = ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]
   }
 }
