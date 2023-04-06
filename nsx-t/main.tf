@@ -173,24 +173,20 @@ resource "nsxt_policy_group" "group" {
   for_each            = var.group
   display_name        = each.value["display_name"]
   description         = each.value["description"]
-  
-  dynamic "criteria" {
-    for_each            = var.group
-    content {
-      condition {
-        key                 = each.value["key"]
-        member_type         = each.value["member_type"]
-        operator            = each.value["operator"]
-        value               = each.value["value"]         
-      }
+
+  criteria {
+    condition {
+      key                 = each.value["key"]
+      member_type         = each.value["member_type"]
+      operator            = each.value["operator"]
+      value               = each.value["value"] 
     }
-  dynamic "criteria" {
-    for_each            = var.group
-    content {
-      ipaddress_expression {
-        ip_addresses        = each.value["ipaddress_expression"]
-      }
+    ipaddress_expression {
+      ip_addresses        = each.value["ipaddress_expression"]
+    }
   }
- }
- }
+  tag {
+    scope = var.nsx_tag_scope
+    tag   = var.nsx_tag
+  }
 }
