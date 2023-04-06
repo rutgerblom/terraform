@@ -92,7 +92,7 @@ resource "nsxt_policy_gateway_redistribution_config" "redistribution" {
   ospf_enabled              = each.value["ospf_enabled"]
 
   rule {
-    rule_name                 = each.value["rule_name"]
+    name                      = each.value["rule_name"]
     types                     = each.value["rule_types"]
   }
 }
