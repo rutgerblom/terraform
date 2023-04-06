@@ -43,7 +43,7 @@ variable "tier0_gateway" {
     inter_sr_ibgp             = bool
     multipath_relax           = bool
   }))
-  description = "A mapping of objects for NSX Tier-0 Gateways and their associated settings."
+  description = "A mapping of objects for NSX Tier-0 Gateways and associated settings."
 }
 
 ##################################################################################
@@ -58,7 +58,20 @@ variable "tier0_gateway_interface" {
     segment                   = string
     subnets                   = list(string)
   }))
-  description = "A mapping of objects for NSX Tier-0 Gateway Interfaces and their associated settings."
+  description = "A mapping of objects for NSX Tier-0 Gateway Interfaces and associated settings."
+}
+
+##################################################################################
+# Tier-0 Gateway Route Redistribution
+##################################################################################
+variable "tier0_gateway_redistribution" {
+  type = map(object({
+    bgp_enabled               = bool
+    ospf_enabled              = bool
+    rule_name                 = string
+    rule_types                = string
+  }))
+  description = "A mapping of objects for NSX Tier-0 Gateway Route Re-distribution config and associated settings."
 }
 
 ##################################################################################
@@ -73,7 +86,7 @@ variable "tier1_gateway" {
     failover_mode             = string
     tier-0                    = string
   }))
-  description = "A mapping of objects for NSX Tier-1 Gateways and their associated settings."
+  description = "A mapping of objects for NSX Tier-1 Gateways and associated settings."
 }
 
 ##################################################################################
@@ -86,7 +99,7 @@ variable "nsx_segment" {
     gateway_cidr              = string
     gateway                   = string
   }))
-  description = "A mapping of objects for NSX Segments and their associated settings."
+  description = "A mapping of objects for NSX Segments and associated settings."
 }
 
 ##################################################################################
@@ -98,7 +111,7 @@ variable "nsx_segment_vlan" {
     description               = string
     vlan_ids                  = list(number)
   }))
-  description = "A mapping of objects for NSX Segments and their associated settings."
+  description = "A mapping of objects for NSX Segments and associated settings."
 }
 
 ##################################################################################
@@ -117,5 +130,5 @@ variable "bgp_neighbor" {
     source_interface          = string
     tier-0                    = string
   }))
-  description = "A mapping of objects for NSX BGP neighbors and their associated settings."
+  description = "A mapping of objects for NSX BGP neighbors and associated settings."
 }
