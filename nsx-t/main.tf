@@ -170,7 +170,7 @@ resource "nsxt_policy_vlan_segment" "segment" {
 ######################################################################################################################################
 
 resource "nsxt_policy_group" "group" {
-  for_each            = var.group.vm_group
+  for_each            = var.group["vm_group"]
   display_name        = each.value["display_name"]
   description         = each.value["description"]
 
