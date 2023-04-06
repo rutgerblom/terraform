@@ -14,7 +14,7 @@ group = {
     member_type               = "VirtualMachine"
     operator                  = "EQUALS"
     value                     = "Application|AD"
-    ipaddress_expression      = null
+    ipaddress_expression      = []
   }
   group02 = {
     display_name              = "SG-DNS"
@@ -23,7 +23,7 @@ group = {
     member_type               = "VirtualMachine"
     operator                  = "EQUALS"
     value                     = "Application|DNS"
-    ipaddress_expression      = null
+    ipaddress_expression      = []
   }
   group03 = {
     display_name              = "SG-NTP"
@@ -32,7 +32,7 @@ group = {
     member_type               = "VirtualMachine"
     operator                  = "EQUALS"
     value                     = "Application|NTP"
-    ipaddress_expression      = null
+    ipaddress_expression      = []
   }
   group04 = {
     display_name              = "SG-Syslog"
@@ -41,7 +41,7 @@ group = {
     member_type               = "VirtualMachine"
     operator                  = "EQUALS"
     value                     = "Application|Syslog"
-    ipaddress_expression      = null
+    ipaddress_expression      = []
   }
   group05 = {
     display_name              = "SG-Backup"
@@ -50,7 +50,7 @@ group = {
     member_type               = "VirtualMachine"
     operator                  = "EQUALS"
     value                     = "Application|Backup"
-    ipaddress_expression      = null
+    ipaddress_expression      = []
   }
   group06 = {
     display_name              = "SG-RFC1918"
