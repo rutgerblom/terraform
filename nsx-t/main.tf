@@ -175,11 +175,14 @@ resource "nsxt_policy_group" "group" {
   description         = each.value["description"]
 
   criteria {
-    condition {
-      key                 = each.value["key"]
-      member_type         = each.value["member_type"]
-      operator            = each.value["operator"]
-      value               = each.value["value"] 
+    dynamic "condition" {
+      for_each            = var.group
+      content {
+        key                 = condition.value["key"]
+        member_type         = condition.value["member_type"]
+        operator            = condition.value["operator"]
+        value               = condition.value["value"]         
+      }
     }
     ipaddress_expression {
       ip_addresses        = each.value["ipaddress_expression"]
