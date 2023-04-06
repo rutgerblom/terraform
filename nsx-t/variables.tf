@@ -120,18 +120,6 @@ variable "nsx_segment_vlan" {
 # BGP Neighbors
 ##################################################################################
 variable "bgp_neighbor" {
-  type = map(object({
-    display_name              = string
-    description               = string
-    allow_as_in               = bool
-    graceful_restart_mode     = string
-    hold_down_time            = number
-    keep_alive_time           = number
-    neighbor_address          = string
-    remote_as_num             = number
-    source_interface          = string
-    tier-0                    = string
-  }))
   description = "A mapping of objects for NSX BGP neighbors and associated settings."
 }
 
