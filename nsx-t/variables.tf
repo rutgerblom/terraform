@@ -139,14 +139,5 @@ variable "bgp_neighbor" {
 # Groups
 ##################################################################################
 variable "group" {
-  type = map(object({
-    display_name              = string
-    description               = string
-    key                       = string
-    member_type               = string
-    operator                  = string
-    value                     = string
-    ipaddress_expression      = list(string)
-  }))
   description = "A mapping of objects for NSX Group and associated settings."
 }
