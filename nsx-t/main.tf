@@ -170,7 +170,7 @@ resource "nsxt_policy_vlan_segment" "segment" {
 ######################################################################################################################################
 
 resource "nsxt_policy_group" "group" {
-  for_each            = var.group
+  for_each            = var.group.vm_group
   display_name        = each.value["display_name"]
   description         = each.value["description"]
 
@@ -183,11 +183,11 @@ resource "nsxt_policy_group" "group" {
     }
   }
 
-  criteria {
-    ipaddress_expression {
-      ip_addresses        = each.value["ipaddress_expression"]
-    }    
-  }
+  #criteria {
+  #  ipaddress_expression {
+  #    ip_addresses        = each.value["ipaddress_expression"]
+  #  }    
+  #}
 
   tag {
     scope = var.nsx_tag_scope

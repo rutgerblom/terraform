@@ -7,7 +7,7 @@
 ###################################################################################################################################
 
 group = {
-  vm_groups = {
+  vm_group = {
     group01 = {
       display_name              = "SG-AD"
       description               = "Group contains AD Domain Controllers"
@@ -53,14 +53,10 @@ group = {
       ipaddress_expression      = []
     }
   }
-  ip_groups = {
+  ip_group = {
     group06 = {
       display_name              = "SG-RFC1918"
       description               = "Group contains RFC 1918 IP subnets"
-      key                       =
-      member_type               =
-      operator                  =
-      value                     =
       ipaddress_expression      = ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]
     }
   }
