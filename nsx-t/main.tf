@@ -162,3 +162,29 @@ resource "nsxt_policy_vlan_segment" "segment" {
     tag   = var.nsx_tag
   }
 }
+
+######################################################################################################################################
+#                                                                                                                                    #
+# Groups                                                                                                                  #
+#                                                                                                                                    #
+######################################################################################################################################
+
+resource "nsxt_policy_group" "group" {
+  for_each            = var.group
+  display_name        = each.value["display_name"]
+  description         = each.value["description"]
+
+  criteria {
+    condition {
+      key                 = each.value["key"]
+      member_type         = each.value["member_type"]
+      operator            = each.value["operator"]
+      value               = each.value["value"] 
+    }
+  }
+
+  tag {
+    scope = var.nsx_tag_scope
+    tag   = var.nsx_tag
+  }
+}

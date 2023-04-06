@@ -92,7 +92,7 @@ variable "tier1_gateway" {
 }
 
 ##################################################################################
-# SEGMENTS Overlay
+# Overlay segments
 ##################################################################################
 variable "nsx_segment" {
   type = map(object({
@@ -105,7 +105,7 @@ variable "nsx_segment" {
 }
 
 ##################################################################################
-# SEGMENTS VLAN
+# VLAN segments
 ##################################################################################
 variable "nsx_segment_vlan" {
   type = map(object({
@@ -133,4 +133,19 @@ variable "bgp_neighbor" {
     tier-0                    = string
   }))
   description = "A mapping of objects for NSX BGP neighbors and associated settings."
+}
+
+##################################################################################
+# Groups
+##################################################################################
+variable "group" {
+  type = map(object({
+    display_name              = string
+    description               = string
+    key                       = string
+    member_type               = string
+    operator                  = number
+    value                     = number
+  }))
+  description = "A mapping of objects for NSX Group and associated settings."
 }
