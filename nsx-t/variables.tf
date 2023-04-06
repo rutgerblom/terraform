@@ -144,8 +144,8 @@ variable "group" {
     description               = string
     key                       = string
     member_type               = string
-    operator                  = number
-    value                     = number
+    operator                  = string
+    value                     = string
   }))
   description = "A mapping of objects for NSX Group and associated settings."
 }
