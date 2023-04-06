@@ -178,10 +178,10 @@ resource "nsxt_policy_group" "group" {
     dynamic "condition" {
       for_each            = var.group
       content {
-        key                 = condition.value["key"]
-        member_type         = condition.value["member_type"]
-        operator            = condition.value["operator"]
-        value               = condition.value["value"]         
+        key                 = each.value["key"]
+        member_type         = each.value["member_type"]
+        operator            = each.value["operator"]
+        value               = each.value["value"]         
       }
     }
     ipaddress_expression {
