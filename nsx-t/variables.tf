@@ -85,6 +85,7 @@ variable "tier1_gateway" {
     enable_standby_relocation = bool
     enable_firewall           = bool
     failover_mode             = string
+    route_advertisement_types = list(string)
     tier-0                    = string
   }))
   description = "A mapping of objects for NSX Tier-1 Gateways and associated settings."

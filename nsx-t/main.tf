@@ -111,8 +111,7 @@ resource "nsxt_policy_tier1_gateway" "tier1" {
   enable_standby_relocation = each.value["enable_standby_relocation"]
   enable_firewall           = each.value["enable_firewall"]
   failover_mode             = each.value["failover_mode"]
-  route_advertisement_types = [
-    "TIER1_CONNECTED"]
+  route_advertisement_types = each.value["route_advertisement_types"]
 
   tag {
     scope = var.nsx_tag_scope

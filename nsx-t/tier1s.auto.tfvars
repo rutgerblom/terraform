@@ -13,6 +13,7 @@ tier1_gateway = {
     enable_standby_relocation = false
     enable_firewall           = false
     failover_mode             = "NON_PREEMPTIVE"
+    route_advertisement_types = ["TIER1_CONNECTED"]
     tier-0                    = "gateway01"
   }
 }
