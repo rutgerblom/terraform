@@ -148,6 +148,5 @@ variable "group" {
     value                     = string
     ipaddress_expression      = list(string)
   }))
-  default = null
   description = "A mapping of objects for NSX Group and associated settings."
 }
