@@ -8,7 +8,7 @@
 
 group = {
   vm_group = {
-    group001 = {
+    vm_group0001 = {
       display_name              = "SG-AD"
       description               = "Group contains AD Domain Controllers"
       key                       = "Tag"
@@ -16,7 +16,7 @@ group = {
       operator                  = "EQUALS"
       value                     = "Application|AD"
     }
-    group002 = {
+    vm_group0002 = {
       display_name              = "SG-DNS"
       description               = "Group contains DNS Servers"
       key                       = "Tag"
@@ -25,7 +25,7 @@ group = {
       value                     = "Application|DNS"
       ipaddress_expression      = []
     }
-    group003 = {
+    vm_group0003 = {
       display_name              = "SG-NTP"
       description               = "Group contains NTP Servers"
       key                       = "Tag"
@@ -34,7 +34,7 @@ group = {
       value                     = "Application|NTP"
       ipaddress_expression      = []
     }
-    group004 = {
+    vm_group0004 = {
       display_name              = "SG-Syslog"
       description               = "Group contains Syslog Servers"
       key                       = "Tag"
@@ -43,7 +43,7 @@ group = {
       value                     = "Application|Syslog"
       ipaddress_expression      = []
     }
-    group005 = {
+    vm_group0005 = {
       display_name              = "SG-Backup"
       description               = "Group contains Backup Targets"
       key                       = "Tag"
@@ -53,8 +53,8 @@ group = {
       ipaddress_expression      = []
     }
   }
-  ip_group006 = {
-    group = {
+  ip_group = {
+    ip_group0001 = {
       display_name              = "SG-RFC1918"
       description               = "Group contains RFC 1918 IP subnets"
       ipaddress_expression      = ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]
