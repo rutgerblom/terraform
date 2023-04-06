@@ -13,6 +13,6 @@ group = {
     key                       = "Tag"
     member_type               = "VirtualMachine"
     operator                  = "EQUALS"
-    value                     = "AD"
+    value                     = "Application|AD"
   }
 }
