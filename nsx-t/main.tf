@@ -82,6 +82,20 @@ resource "nsxt_policy_bgp_neighbor" "neighbor" {
 
 ######################################################################################################################################
 #                                                                                                                                    #
+# Tier-0 Gateway Route Re-distribution                                                                                                                      #
+#                                                                                                                                    #
+######################################################################################################################################
+resource "nsxt_policy_gateway_redistribution_config" "redistribution" {
+  for_each                  = var.tier0_gateway_redistribution
+  gateway_path              = nsxt_policy_tier0_gateway.tier0[each.value.tier-0].path
+  bgp_enabled               = each.value["bgp_enabled"]
+  ospf_enabled              = each.value["ospf_enabled"]
+  rule_name                 = each.value["rule_name"]
+  types                     = each.value["rule_types"]
+}
+
+######################################################################################################################################
+#                                                                                                                                    #
 # Tier-1 Gateways                                                                                                                    #
 #                                                                                                                                    #
 ######################################################################################################################################

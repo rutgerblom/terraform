@@ -12,6 +12,6 @@ tier0_gateway_redistribution = {
     ospf_enabled              = false
     rule_name                 = "Tier-1 Connected"
     rule_types                = ["TIER1_CONNECTED"]
-    gateway                   = "gateway01"
+    tier-0                    = "gateway01"
   }
 }

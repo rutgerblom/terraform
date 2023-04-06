@@ -70,6 +70,7 @@ variable "tier0_gateway_redistribution" {
     ospf_enabled              = bool
     rule_name                 = string
     rule_types                = list(string)
+    tier-0                    = string
   }))
   description = "A mapping of objects for NSX Tier-0 Gateway Route Re-distribution config and associated settings."
 }
