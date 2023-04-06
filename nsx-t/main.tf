@@ -195,7 +195,7 @@ resource "nsxt_policy_group" "group" {
   }
 }
 
-resource "nsxt_policy_group" "group" {
+resource "nsxt_policy_group" "ip_group" {
   for_each            = var.group["ip_group"]
   display_name        = each.value["display_name"]
   description         = each.value["description"]
