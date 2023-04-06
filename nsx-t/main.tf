@@ -181,10 +181,14 @@ resource "nsxt_policy_group" "group" {
       operator            = each.value["operator"]
       value               = each.value["value"] 
     }
+  }
+  
+  criteria {
     ipaddress_expression {
       ip_addresses        = each.value["ipaddress_expression"]
-    }
+    }    
   }
+
   tag {
     scope = var.nsx_tag_scope
     tag   = var.nsx_tag
