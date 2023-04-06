@@ -181,7 +181,8 @@ resource "nsxt_policy_group" "group" {
       operator            = each.value["operator"]
       value               = each.value["value"] 
     }
-    ipaddress_expression  = each.value["ipaddress_expression"]
+    ipaddress_expression {
+      ip_addresses        = each.value["ipaddress_expression"]
   }
 
   tag {
