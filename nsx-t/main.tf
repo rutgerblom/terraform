@@ -173,11 +173,11 @@ resource "nsxt_policy_group" "group" {
   for_each            = var.group
   display_name        = each.value["display_name"]
   description         = each.value["description"]
-
-  criteria {
-    dynamic "condition" {
-      for_each            = var.group
-      content {
+  
+  dynamic "criteria" {
+    for_each            = var.group
+    content {
+      criteria {
         key                 = each.value["key"]
         member_type         = each.value["member_type"]
         operator            = each.value["operator"]
