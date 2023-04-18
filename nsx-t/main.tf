@@ -173,7 +173,7 @@ resource "nsxt_policy_vlan_segment" "segment_host_vlan" {
   for_each            = var.nsx_segment_host_vlan
   display_name        = each.value["display_name"]
   description         = each.value["description"]
-  transport_zone_path = data.nsxt_policy_transport_zone.host_tz.path
+  transport_zone_path = data.nsxt_policy_transport_zone.vlan_tz.path
   vlan_ids            = each.value["vlan_ids"]
 
   tag {
