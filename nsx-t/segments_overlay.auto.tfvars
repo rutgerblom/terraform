@@ -6,7 +6,7 @@
 #                                                                                                                                 #
 ###################################################################################################################################
 
-nsx_segment = {
+nsx_segment_overlay = {
   segment01 = {
     display_name              = "seg-web"
     description               = "Overlay segment for backend workloads"

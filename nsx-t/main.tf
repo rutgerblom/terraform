@@ -126,8 +126,8 @@ resource "nsxt_policy_tier1_gateway" "tier1" {
 #                                                                                                                                    #
 ######################################################################################################################################
 
-resource "nsxt_policy_segment" "segment" {
-  for_each            = var.nsx_segment
+resource "nsxt_policy_segment" "segment_overlay" {
+  for_each            = var.nsx_segment_overlay
   display_name        = each.value["display_name"]
   description         = each.value["description"]
   transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
@@ -150,8 +150,8 @@ resource "nsxt_policy_segment" "segment" {
 #                                                                                                                                    #
 ######################################################################################################################################
 
-resource "nsxt_policy_vlan_segment" "segment" {
-  for_each            = var.nsx_segment_vlan
+resource "nsxt_policy_vlan_segment" "segment_edge_vlan" {
+  for_each            = var.nsx_segment_edge_vlan
   display_name        = each.value["display_name"]
   description         = each.value["description"]
   transport_zone_path = data.nsxt_policy_transport_zone.edge_tz.path
@@ -169,8 +169,8 @@ resource "nsxt_policy_vlan_segment" "segment" {
 #                                                                                                                                    #
 ######################################################################################################################################
 
-resource "nsxt_policy_vlan_segment" "segment" {
-  for_each            = var.nsx_segment_vlan
+resource "nsxt_policy_vlan_segment" "segment_host_vlan" {
+  for_each            = var.nsx_segment_host_vlan
   display_name        = each.value["display_name"]
   description         = each.value["description"]
   transport_zone_path = data.nsxt_policy_transport_zone.host_tz.path

@@ -26,9 +26,11 @@ variable "tier0_gateway_redistribution" {
 }
 variable "tier1_gateway" {
 }
-variable "nsx_segment" {
+variable "nsx_segment_overlay" {
 }
-variable "nsx_segment_vlan" {
+variable "nsx_segment_edge_vlan" {
+}
+variable "nsx_segment_host_vlan" {
 }
 variable "bgp_neighbor" {
 }

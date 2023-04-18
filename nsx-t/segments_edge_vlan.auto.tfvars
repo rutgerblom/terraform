@@ -6,7 +6,7 @@
 #                                                                                                                                 #
 ###################################################################################################################################
 
-nsx_segment_vlan = {
+nsx_segment_edge_vlan = {
   segment01 = {
     display_name              = "sg-vlan-2711"
     description               = "VLAN segment for BGP uplink1"
@@ -16,15 +16,5 @@ nsx_segment_vlan = {
     display_name              = "sg-vlan-2712"
     description               = "VLAN segment for BGP uplink2"
     vlan_ids                  = [2712]
-  }
-  segment03 = {
-    display_name              = "sg-vlan-1611"
-    description               = "VLAN segment"
-    vlan_ids                  = [1611]
-  }
-  segment04 = {
-    display_name              = "sg-vlan-1612"
-    description               = "VLAN segment"
-    vlan_ids                  = [1612]
   }
 }
