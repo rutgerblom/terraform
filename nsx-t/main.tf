@@ -47,7 +47,7 @@ resource "nsxt_policy_tier0_gateway_interface" "interface" {
   type                      = each.value["type"]
   edge_node_path            = data.nsxt_policy_edge_node.node1.path
   gateway_path              = nsxt_policy_tier0_gateway.tier0[each.value.gateway].path
-  segment_path              = nsxt_policy_vlan_segment.segment[each.value.segment].path
+  segment_path              = nsxt_policy_vlan_segment.segment_edge_vlan[each.value.segment].path
   subnets                   = each.value["subnets"]
 
   tag {
@@ -119,6 +119,24 @@ resource "nsxt_policy_tier1_gateway" "tier1" {
   }
 }
 
+######################################################################################################################################
+#                                                                                                                                    #
+# Edge VLAN Segments                                                                                                                 #
+#                                                                                                                                    #
+######################################################################################################################################
+
+resource "nsxt_policy_vlan_segment" "segment_edge_vlan" {
+  for_each            = var.nsx_segment_edge_vlan
+  display_name        = each.value["display_name"]
+  description         = each.value["description"]
+  transport_zone_path = data.nsxt_policy_transport_zone.edge_tz.path
+  vlan_ids            = each.value["vlan_ids"]
+
+  tag {
+    scope = var.nsx_tag_scope
+    tag   = var.nsx_tag
+  }
+}
 
 ######################################################################################################################################
 #                                                                                                                                    #
@@ -143,29 +161,9 @@ resource "nsxt_policy_segment" "segment_overlay" {
   }
 }
 
-
 ######################################################################################################################################
 #                                                                                                                                    #
-# Edge VLAN Segments                                                                                                                      #
-#                                                                                                                                    #
-######################################################################################################################################
-
-resource "nsxt_policy_vlan_segment" "segment_edge_vlan" {
-  for_each            = var.nsx_segment_edge_vlan
-  display_name        = each.value["display_name"]
-  description         = each.value["description"]
-  transport_zone_path = data.nsxt_policy_transport_zone.edge_tz.path
-  vlan_ids            = each.value["vlan_ids"]
-
-  tag {
-    scope = var.nsx_tag_scope
-    tag   = var.nsx_tag
-  }
-}
-
-######################################################################################################################################
-#                                                                                                                                    #
-# Host VLAN Segments                                                                                                                      #
+# Host VLAN Segments                                                                                                                 #
 #                                                                                                                                    #
 ######################################################################################################################################
 
