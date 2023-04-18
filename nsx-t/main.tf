@@ -146,7 +146,7 @@ resource "nsxt_policy_segment" "segment" {
 
 ######################################################################################################################################
 #                                                                                                                                    #
-# VLAN Segments                                                                                                                      #
+# Edge VLAN Segments                                                                                                                      #
 #                                                                                                                                    #
 ######################################################################################################################################
 
@@ -155,6 +155,25 @@ resource "nsxt_policy_vlan_segment" "segment" {
   display_name        = each.value["display_name"]
   description         = each.value["description"]
   transport_zone_path = data.nsxt_policy_transport_zone.edge_tz.path
+  vlan_ids            = each.value["vlan_ids"]
+
+  tag {
+    scope = var.nsx_tag_scope
+    tag   = var.nsx_tag
+  }
+}
+
+######################################################################################################################################
+#                                                                                                                                    #
+# Host VLAN Segments                                                                                                                      #
+#                                                                                                                                    #
+######################################################################################################################################
+
+resource "nsxt_policy_vlan_segment" "segment" {
+  for_each            = var.nsx_segment_vlan
+  display_name        = each.value["display_name"]
+  description         = each.value["description"]
+  transport_zone_path = data.nsxt_policy_transport_zone.host_tz.path
   vlan_ids            = each.value["vlan_ids"]
 
   tag {
