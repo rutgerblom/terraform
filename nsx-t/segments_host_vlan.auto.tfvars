@@ -8,13 +8,8 @@
 
 nsx_segment_host_vlan = {
   segment01 = {
-    display_name              = "sg-vlan-1611"
+    display_name              = "sg-vlan-1623"
     description               = "VLAN segment"
     vlan_ids                  = [1611]
-  }
-  segment02 = {
-    display_name              = "sg-vlan-1612"
-    description               = "VLAN segment"
-    vlan_ids                  = [1612]
   }
 }
