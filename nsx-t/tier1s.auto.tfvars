@@ -8,8 +8,8 @@
 
 tier1_gateway = {
   gateway01 = {
-    display_name              = "Tier-1-03"
-    description               = "Tier-1 Gateway #3"
+    display_name              = "Tier-1"
+    description               = "Tier-1 Gateway"
     enable_standby_relocation = false
     enable_firewall           = false
     failover_mode             = "NON_PREEMPTIVE"
