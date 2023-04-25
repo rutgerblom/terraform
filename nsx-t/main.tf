@@ -229,11 +229,13 @@ resource "nsxt_policy_group" "ip_group" {
 #                                                                                                                                    #
 ######################################################################################################################################
 
+### Active Directory ###
+
 resource "nsxt_policy_vm_tags" "AD" {
   instance_id = data.nsxt_policy_vm.AD.instance_id
 
   tag {
-    scope = "color"
-    tag   = "blue"
+    scope = "Application"
+    tag   = "AD"
   }
 }
