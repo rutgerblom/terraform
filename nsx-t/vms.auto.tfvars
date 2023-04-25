@@ -40,6 +40,4 @@ nsx_vm = {
     nsx_vm0011 = {
     display_name = "Syslog"
   }
-
-
 }
