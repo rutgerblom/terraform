@@ -230,7 +230,7 @@ resource "nsxt_policy_group" "ip_group" {
 ######################################################################################################################################
 
 resource "nsxt_policy_vm_tags" "vm_tag" {
-  instance_id         = data.nsxt_policy_vm.vm_all.nsx_vm0001.id
+  instance_id         = data.nsxt_policy_vm.vm_all[each.key].id
 
   tag {
     scope = "color"
