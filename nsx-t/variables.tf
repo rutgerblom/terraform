@@ -36,5 +36,3 @@ variable "bgp_neighbor" {
 }
 variable "group" {
 }
-variable "nsx_vm" {
-}

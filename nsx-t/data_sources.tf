@@ -38,7 +38,6 @@ data "nsxt_policy_transport_zone" "vlan_tz" {
 # Virtual Machines                                                                                                                   #
 #                                                                                                                                    #
 ######################################################################################################################################
-data "nsxt_policy_vm" "vm_all" {
-  for_each  = var.nsx_vm
-  display_name = each.value["display_name"]
+data "nsxt_policy_vm" "AD" {
+  display_name = "AD"
 }
